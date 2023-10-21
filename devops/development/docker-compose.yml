@@ -8,7 +8,9 @@ services:
     env_file:
       - .kc-db.env
     networks:
-      - sisgea-net
+      sisgea-net:
+    ports:
+      - 127.128.5.11:5432:5432
 
   sisgea-sso:
     build:
@@ -23,9 +25,9 @@ services:
     depends_on:
       - sisgea-sso-db
     networks:
-      - sisgea-net
+      sisgea-net:
     ports:
-      - 8080:8080
+      - 127.128.5.10:8080:8080
 
 networks:
   sisgea-net:
