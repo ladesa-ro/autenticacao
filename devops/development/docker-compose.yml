@@ -1,0 +1,35 @@
+services:
+  sisgea-sso-db:
+    image: bitnami/postgresql:15
+    container_name: sisgea-sso-db
+    volumes:
+      - "sisgea-sso-db-data:/bitnami/postgresql"
+      - "./volumes/db/scripts/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d"
+    env_file:
+      - .kc-db.env
+    networks:
+      - sisgea-net
+
+  sisgea-sso:
+    build:
+      context: ../docker/sso/image
+      args:
+        - KEYCLOAK_EXTRA_ARGS=-Dkeycloak.profile.feature.scripts=enabled
+    entrypoint: /opt/keycloak/bin/kc.sh
+    command: start-dev --import-realm
+    container_name: sisgea-sso
+    env_file:
+      - .kc.env
+    depends_on:
+      - sisgea-sso-db
+    networks:
+      - sisgea-net
+    ports:
+      - 8080:8080
+
+networks:
+  sisgea-net:
+    external: true
+
+volumes:
+  sisgea-sso-db-data:
