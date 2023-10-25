@@ -6,14 +6,14 @@ dev-setup:
 
 dev-up:
 	make dev-setup;
-	sudo docker compose --file devops/development/docker-compose.yml up -d;
+	sudo docker compose --file devops/development/docker-compose.yml -p sisgea-module-sso up -d;
 
 dev-shell:
 	make dev-up;
-	sudo docker compose --file devops/development/docker-compose.yml exec sisgea-sso bash;
+	sudo docker compose --file devops/development/docker-compose.yml -p sisgea-module-sso exec sisgea-sso bash;
 
 dev-down:
-	sudo docker compose --file devops/development/docker-compose.yml stop
+	sudo docker compose --file devops/development/docker-compose.yml -p sisgea-module-sso stop
 
 dev-logs:
-	sudo docker compose --file devops/development/docker-compose.yml logs -f
+	sudo docker compose --file devops/development/docker-compose.yml -p sisgea-module-sso logs -f
