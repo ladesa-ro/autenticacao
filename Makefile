@@ -6,7 +6,7 @@ dev-setup:
 
 dev-up:
 	make dev-setup;
-	sudo docker compose --file devops/development/docker-compose.yml -p sisgea-module-sso up -d;
+	sudo docker compose --file devops/development/docker-compose.yml -p sisgea-module-sso up -d  --build;
 
 dev-shell:
 	make dev-up;
