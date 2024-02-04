@@ -1,18 +1,18 @@
-# sisgea-module-sso
+# sisgea-servc-idp
 
 ## Desenvolvimento
 
 ```
-git clone https://github.com/sisgha/module-sso.git
-cd module-sso
+git clone https://github.com/sisgha/sisgea-servc-idp.git;
+cd sisgea-servc-idp;
 ```
 
 ### Serviços do [devops/development/docker-compose.yml](./devops/development/docker-compose.yml)
 
-| Host            | Endereço            | Descrição               | Plataforma Base                    |
-| --------------- | ------------------- | ----------------------- | ---------------------------------- |
-| `sisgea-sso`    | `127.128.5.10:8080` | Aplicação KeyCloak      | `quay.io/keycloak/keycloak:21.1.2` |
-| `sisgea-sso-db` | `127.128.5.11:5432` | Banco de dados postgres | `docker.io/bitnami/postgresql:15`  |
+| Host                  | Endereço            | Descrição               | Plataforma Base                    |
+| --------------------- | ------------------- | ----------------------- | ---------------------------------- |
+| `sisgea-servc-idp`    | `127.128.5.10:8080` | Aplicação KeyCloak      | `quay.io/keycloak/keycloak:21.1.2` |
+| `sisgea-servc-idp-db` | `127.128.5.11:5432` | Banco de dados postgres | `docker.io/bitnami/postgresql:15`  |
 
 ### Scripts Make
 
