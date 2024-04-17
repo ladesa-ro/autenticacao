@@ -1,10 +1,10 @@
-# sisgea-servc-idp
+# sisgea-account
 
 ## Desenvolvimento
 
 ```
-git clone https://github.com/sisgha/sisgea-servc-idp.git;
-cd sisgea-servc-idp;
+git clone https://github.com/sisgha/sisgea-account.git;
+cd sisgea-account;
 ```
 
 ### Serviços do [devops/development/docker-compose.yml](./devops/development/docker-compose.yml)
