@@ -1,19 +1,45 @@
+
+d_network=ladesa-net
+d_container_app=ladesa-ro-auth
+
+compose_options=--file .devops/development/docker-compose.yml -p ladesa-ro-auth
+
 dev-setup:
 
-	$(shell (cd devops/development; find . -type f -name "*.example" -exec sh -c 'cp -n {} $$(basename {} .example)' \;))
+	$(shell (cd .devops/development; find . -type f -name "*.example" -exec sh -c 'cp -n {} $$(basename {} .example)' \;))
 
-	$(shell sudo docker network create sisgea-net 2>/dev/null)
+	$(shell (bash -c "sudo docker network create $(d_network) &>/dev/null"))
 
 dev-up:
 	make dev-setup;
-	sudo docker compose --file devops/development/docker-compose.yml -p sisgea-servc-idp up -d --build;
+	sudo docker compose $(compose_options) up -d --remove-orphans;
 
 dev-shell:
+	make dev-setup;
 	make dev-up;
-	sudo docker compose --file devops/development/docker-compose.yml -p sisgea-servc-idp exec sisgea-servc-idp bash;
+	sudo docker compose $(compose_options) exec $(d_container_app) bash;
+
+dev-shell-root:
+	make dev-setup;
+	make dev-up;
+	sudo docker compose $(compose_options) exec -u root $(d_container_app) bash;
 
 dev-down:
-	sudo docker compose --file devops/development/docker-compose.yml -p sisgea-servc-idp stop
+	make dev-setup;
+	sudo docker compose $(compose_options) stop;
 
 dev-logs:
-	sudo docker compose --file devops/development/docker-compose.yml -p sisgea-servc-idp logs -f
+	make dev-setup;
+	sudo docker compose $(compose_options) logs -f
+
+
+dev-start:
+	make dev-setup;
+	make dev-down;
+	make dev-up;
+
+	sudo docker compose $(compose_options) exec -u node --no-TTY -d $(d_container_app) bash -c "npm i && npm run migration:run && npm run start:dev" \&;
+
+dev-cleanup:
+	make dev-down;
+	sudo docker compose $(compose_options) down -v;

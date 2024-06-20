@@ -1,18 +1,20 @@
-# sisgea-account
+# auth
 
-## Desenvolvimento
+## Configuração Local
 
+### Obter o código fonte do projeto
+
+```sh
+git clone https://github.com/ladesa-ro/auth.git
+cd auth
 ```
-git clone https://github.com/sisgha/sisgea-account.git;
-cd sisgea-account;
-```
 
-### Serviços do [devops/development/docker-compose.yml](./devops/development/docker-compose.yml)
+### Serviços do [.devops/development/docker-compose.yml](./.devops/development/docker-compose.yml)
 
-| Host                  | Endereço            | Descrição               | Plataforma Base                    |
-| --------------------- | ------------------- | ----------------------- | ---------------------------------- |
-| `sisgea-servc-idp`    | `127.128.5.10:8080` | Aplicação KeyCloak      | `quay.io/keycloak/keycloak:21.1.2` |
-| `sisgea-servc-idp-db` | `127.128.5.11:5432` | Banco de dados postgres | `docker.io/bitnami/postgresql:15`  |
+| Host                | Endereço            | Descrição               | Plataforma Base                   |
+| ------------------- | ------------------- | ----------------------- | --------------------------------- |
+| `ladesa-ro-auth`    | `127.128.5.10:8080` | Aplicação KeyCloak      | `quay.io/keycloak/keycloak:23.0`  |
+| `ladesa-ro-auth-db` | `127.128.5.11:5432` | Banco de dados postgres | `docker.io/bitnami/postgresql:15` |
 
 ### Scripts Make
 
