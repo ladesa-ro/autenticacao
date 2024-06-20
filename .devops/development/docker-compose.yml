@@ -1,37 +1,39 @@
 services:
-  sisgea-servc-idp-db:
+  ladesa-ro-auth-db:
     image: bitnami/postgresql:15
-    container_name: sisgea-servc-idp-db
+    container_name: ladesa-ro-auth-db
     volumes:
-      - "sisgea-servc-idp-db-data:/bitnami/postgresql"
+      - "ladesa-ro-auth-db-data:/bitnami/postgresql"
       - "./volumes/db/scripts/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d"
     env_file:
       - .kc-db.env
     networks:
-      sisgea-net:
+      ladesa-net:
     ports:
       - 127.128.5.11:5432:5432
 
-  sisgea-servc-idp:
+  ladesa-ro-auth:
     build:
-      context: ../docker/sso/image
+      context: ../../
       args:
         - KEYCLOAK_EXTRA_ARGS=-Dkeycloak.profile.feature.scripts=enabled
     entrypoint: /opt/keycloak/bin/kc.sh
     command: start-dev --import-realm
-    container_name: sisgea-servc-idp
+    container_name: ladesa-ro-auth
+    volumes:
+      - ./data/import:/opt/keycloak/data/import/
     env_file:
       - .kc.env
     depends_on:
-      - sisgea-servc-idp-db
+      - ladesa-ro-auth-db
     networks:
-      sisgea-net:
+      ladesa-net:
     ports:
       - 127.128.5.10:8080:8080
 
 networks:
-  sisgea-net:
+  ladesa-net:
     external: true
 
 volumes:
-  sisgea-servc-idp-db-data:
+  ladesa-ro-auth-db-data:
