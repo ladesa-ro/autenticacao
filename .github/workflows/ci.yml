@@ -41,6 +41,11 @@ env:
 jobs:
   image-build-push:
     runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+      attestations: write
+      id-token: write
     steps:
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
