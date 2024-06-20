@@ -1,5 +1,15 @@
 # auth
 
+## Ambientes
+
+### Produção
+
+[![CI Production][action-ci-prod-src]][action-ci-prod-href]
+
+### Desenvolvimento
+
+[![CI Development][action-ci-dev-src]][action-ci-dev-href]
+
 ## Configuração Local
 
 ### Obter o código fonte do projeto
@@ -34,3 +44,15 @@ dev-logs:
 ```
 
 ## Aplicação KeyCloak
+
+<!-- Badges -->
+
+<!-- Badges / Actions / Production  -->
+
+[action-ci-prod-src]: https://img.shields.io/github/actions/workflow/status/ladesa-ro/auth/ci.yml?style=flat&logo=github&logoColor=white&label=CI@production&branch=production&labelColor=18181B
+[action-ci-prod-href]: https://github.com/ladesa-ro/auth/actions/workflows/ci.yml?query=branch%3Aproduction
+
+<!-- Badges / Actions / Development  -->
+
+[action-ci-dev-src]: https://img.shields.io/github/actions/workflow/status/ladesa-ro/auth/ci.yml?style=flat&logo=github&logoColor=white&label=CI@development&branch=main&labelColor=18181B
+[action-ci-dev-href]: https://github.com/ladesa-ro/auth/actions/workflows/ci.yml?query=branch%3Amain
