@@ -4,7 +4,7 @@ ENV KC_METRICS_ENABLED=false
 ENV KC_FEATURES=docker,token-exchange,recovery-codes
 ENV KC_DB=postgres
 ENV KEYCLOAK_EXTRA_ARGS=-Dkeycloak.profile.feature.scripts=enabled
-RUN /opt/keycloak/bin/kc.sh build
+RUN /opt/keycloak/bin/kc.sh build --health-enabled=true
 
 FROM quay.io/keycloak/keycloak:25.0
 COPY --from=builder /opt/keycloak/ /opt/keycloak/
