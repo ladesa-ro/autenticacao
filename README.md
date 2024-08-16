@@ -1,7 +1,7 @@
 
 <h1 align="center">Autenticação do Ladesa</h1>
 
-<p align="center">Serviço centralizado de gestão e checagem das identidades dos usuários do sistema por meio de integrações modernas e padronizadas.</p>
+<p align="center">Serviço especializado para lidar com as credenciais de acesso dos usuários, bem como checagem de identidade e APIs modernas de sessão.</p>
 
 ----
 
@@ -9,7 +9,11 @@
 
 ## Desenvolvimento Local
 
-### Obter o código fonte do projeto
+1. Obter o código fonte do projeto
+
+O primeiro passo para trabalhar com o serviço de Autenticação do Ladesa é obter uma cópia do repositório git. 
+
+Por meio dos comandos a seguir, você terá em sua máquina de desenvolvimento o acesso ao repositório deste projeto:
 
 ```sh
 git clone https://github.com/ladesa-ro/auth.git
