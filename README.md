@@ -18,9 +18,13 @@
 
 Os sistemas do Ladesa, assim como muitos aplicativos informáticos modernos, trabalham com a interação entre humanos e máquinas. 
 
-Nesse sentido, surge a demanda de identificar e representar essas pessoas nesses ambientes virtuais para, dentre outras coisas, reconhecer a autoria de ações e delimitar quais operações cada um pode realizar em diferentes contextos. Dado a necessidade apresentada de gerenciar os perfis de acesso, este serviço surge para cuidar do credenciamento e checagem de identidade a qualquer outro sistema que queira integrar ao ecossistema do Ladesa.
+Nesse sentido, surge a demanda de identificar e representar essas pessoas nesses ambientes virtuais para, dentre outras coisas, reconhecer a autoria de ações e delimitar quais operações cada um pode realizar em diferentes contextos. 
+
+Sendo assim, é necessário uma solução robusta e confiável a qual todo o ecossistema possa confiar para a correta checagem de sessões dos indivíduos que utilizem os sistemas, seja um aplicativo mobile, web ou desktop.
 
 ## Propósito
+
+Dado a necessidade apresentada de gerenciar os perfis de acesso, este serviço surge para cuidar do credenciamento e checagem de identidade a qualquer outro sistema que queira integrar ao ecossistema do Ladesa.
 
 ### Objetivo Geral
 
