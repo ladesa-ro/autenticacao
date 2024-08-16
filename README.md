@@ -18,14 +18,15 @@
 
 Os sistemas do Ladesa, assim como muitos aplicativos informáticos modernos, trabalham com a interação entre humanos e máquinas. 
 
-Nesse sentido, surge a demanda de identificar e representar essas pessoas nesses ambientes virtuais para, dentre outras coisas, reconhecer a autoria de ações e delimitar quais operações cada um pode realizar em diferentes contextos. 
+Diante disso, surge a demanda de identificar e representar as pessoas em ambientes virtuais para, dentre outras coisas, reconhecer as autorias de ações e delimitar quais operações cada perfil possa realizar em diferentes contextos. 
 
 Portanto, é necessário uma solução robusta e confiável que forneça os meios necessários para a correta identificação dos indivíduos, a qual todo o ecossistema possa confiar.
 
 ## Propósito
 
 <!-- Dado a necessidade apresentada de gerenciar os perfis de acesso, --> 
-Este serviço deve cuidar do credenciamento e checagem de identidade a qualquer outro sistema que queira integrar ao ecossistema do Ladesa.
+Dado a necessidade de que os serviços integrados aos projetos do Ladesa têm de iniciar e confiar nas sessões dos usuários, 
+este projeto surge para cuidar do credenciamento e checagem de identidade a qualquer outra aplicação tecnológica que queira a integração.
 
 ### Objetivo Geral
 
