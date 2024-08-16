@@ -14,8 +14,18 @@
   
 </div>
 
-----
+## Motivação
 
+Os sistemas do Ladesa, assim como muitos aplicativos informáticos modernos, trabalham com a interação entre humanos e máquinas. 
+
+Nesse sentido, surge a demanda de identificar essas pessoas nessas plataformas para, dentre outras coisas, identificar a autoria de ações e delimitar quais operações cada um pode realizar por meio de cargos e papéis. 
+
+Dado a problemática de credenciamento de perfis apresentada, este serviço surge para gerenciar o credenciamento e checagem de identidade a qualquer sistema que queira integrar ao ecossistema do Ladesa.
+
+<!--
+(como adminstradores e usuários não privilegiados)
+de modo a possibilitar o controle de níveis de acesso, tal como adminstradores, usuários não pivilegiados.
+-->
 
 ## Desenvolvimento Local
 
