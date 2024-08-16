@@ -24,7 +24,8 @@ Portanto, é necessário uma solução robusta e confiável que forneça os meio
 
 ## Propósito
 
-Dado a necessidade apresentada de gerenciar os perfis de acesso, este serviço surge para cuidar do credenciamento e checagem de identidade a qualquer outro sistema que queira integrar ao ecossistema do Ladesa.
+<!-- Dado a necessidade apresentada de gerenciar os perfis de acesso, --> 
+Este serviço deve cuidar do credenciamento e checagem de identidade a qualquer outro sistema que queira integrar ao ecossistema do Ladesa.
 
 ### Objetivo Geral
 
@@ -34,14 +35,22 @@ Dado a necessidade apresentada de gerenciar os perfis de acesso, este serviço s
 
 ### Requisitos
 
-- Acesso à Linha de Comando;
-- Git;
-- Docker;
+Para o desenvolvimento local, é necessário preparar o seu ambiente de trabalho com alguns recursos necessários para mexer com este projeto. 
+
+A seguir, estão listadas as tecnologias que você precisa ter em seu computador antes para prosseguir com sua jornada.
+
+> [!TIP]
+> Preparamos dicas e tutoriais para você acerca de cada tópico!
+> Basta clicar nos links para saber mais.
+
+- [Acesso à Linha de Comando](https://docs.ladesa.com.br/developers/tutorials/os/command-line/);
+- [Git](https://docs.ladesa.com.br/developers/tutorials/source-code/git/);
+- [Docker](https://docs.ladesa.com.br/developers/tutorials/platforms/containers/docker/);
 - GNU Make;
 
-O primeiro passo para trabalhar com o serviço de Autenticação do Ladesa é obter uma cópia dos arquivos deste repositório. 
-
 ### Obter o código fonte do projeto
+
+O primeiro passo para trabalhar com o serviço de Autenticação do Ladesa é obter uma cópia dos arquivos deste repositório. 
 
 Por meio dos comandos a seguir, você terá em sua máquina de desenvolvimento o acesso ao repositório deste projeto:
 
