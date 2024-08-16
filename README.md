@@ -1,8 +1,13 @@
-# Autenticação
+
+<h1 align="center">Autenticação</h1>
+
+<p align="center">Serviço centralizado de hecagem e gestão das identidades dos usuários do sistema por meio de integrações modernas e padronizadas.</p>
+
+----
 
 [![CI Development][action-ci-src]][action-ci-href] [![CI Production][action-ci-prod-src]][action-ci-prod-href]
 
-## Configuração Local
+## Desenvolvimento Local
 
 ### Obter o código fonte do projeto
 
