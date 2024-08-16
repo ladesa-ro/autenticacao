@@ -18,20 +18,26 @@
 
 Os sistemas do Ladesa, assim como muitos aplicativos informáticos modernos, trabalham com a interação entre humanos e máquinas. 
 
-Nesse sentido, surge a demanda de identificar e representar essas pessoas nesses ambientes virtuais para, dentre outras coisas, reconhecer a autoria de ações e delimitar quais operações cada um pode realizar em diferentes contextos. 
+Nesse sentido, surge a demanda de identificar e representar essas pessoas nesses ambientes virtuais para, dentre outras coisas, reconhecer a autoria de ações e delimitar quais operações cada um pode realizar em diferentes contextos. Dado a necessidade apresentada de gerenciar os perfis de acesso, este serviço surge para cuidar do credenciamento e checagem de identidade a qualquer outro sistema que queira integrar ao ecossistema do Ladesa.
 
-Dado a necessidade apresentada de gerenciar os perfis de acesso, este serviço surge para cuidar do credenciamento e checagem de identidade a qualquer outro sistema que queira integrar ao ecossistema do Ladesa.
+## Propósito
 
-<!--
-(como adminstradores e usuários não privilegiados)
-de modo a possibilitar o controle de níveis de acesso, tal como adminstradores, usuários não pivilegiados.
--->
+### Objetivo Geral
+
+### Objetivos Específicos
 
 ## Desenvolvimento Local
 
-### Obter o código fonte do projeto
+### Requisitos
+
+- Acesso à Linha de Comando;
+- Git;
+- Docker;
+- GNU Make;
 
 O primeiro passo para trabalhar com o serviço de Autenticação do Ladesa é obter uma cópia dos arquivos deste repositório. 
+
+### Obter o código fonte do projeto
 
 Por meio dos comandos a seguir, você terá em sua máquina de desenvolvimento o acesso ao repositório deste projeto:
 
