@@ -20,7 +20,7 @@ Os sistemas do Ladesa, assim como muitos aplicativos informáticos modernos, tra
 
 Nesse sentido, surge a demanda de identificar e representar essas pessoas nesses ambientes virtuais para, dentre outras coisas, reconhecer a autoria de ações e delimitar quais operações cada um pode realizar em diferentes contextos. 
 
-Dado a necessidade apresentada de gerenciar de perfis, este serviço surge para cuidar do credenciamento e checagem de identidade a qualquer outro sistema que queira integrar ao ecossistema do Ladesa.
+Dado a necessidade apresentada de gerenciar os perfis de acesso, este serviço surge para cuidar do credenciamento e checagem de identidade a qualquer outro sistema que queira integrar ao ecossistema do Ladesa.
 
 <!--
 (como adminstradores e usuários não privilegiados)
