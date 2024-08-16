@@ -20,7 +20,7 @@ Os sistemas do Ladesa, assim como muitos aplicativos informáticos modernos, tra
 
 Nesse sentido, surge a demanda de identificar e representar essas pessoas nesses ambientes virtuais para, dentre outras coisas, reconhecer a autoria de ações e delimitar quais operações cada um pode realizar em diferentes contextos. 
 
-Sendo assim, é necessário uma solução robusta e confiável a qual todo o ecossistema possa confiar para a correta checagem de sessões dos indivíduos que utilizem os sistemas, seja um aplicativo mobile, web ou desktop.
+Portanto, é necessário uma solução robusta e confiável que forneça os meios necessários para a correta identificação dos indivíduos, a qual todo o ecossistema possa confiar.
 
 ## Propósito
 
