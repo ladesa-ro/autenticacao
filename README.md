@@ -1,7 +1,7 @@
 
 <h1 align="center">Autenticação do Ladesa</h1>
 
-<p align="center">Serviço especializado para lidar com as credenciais de acesso dos usuários, bem como checagem de identidade e APIs modernas de sessão.</p>
+<p align="center">Microsserviço especializado em cuidar das credenciais de acesso dos usuários, possibilitando o _login_ de maneira seguea e prática com APIs de fácil integração a qualquer outro sistema por meio de protocolos modernos.</p>
 
 ----
 
