@@ -1,5 +1,5 @@
 
-<h1 align="center">Autenticação</h1>
+<h1 align="center">Autenticação do Ladesa</h1>
 
 <p align="center">Serviço centralizado de gestão e checagem das identidades dos usuários do sistema por meio de integrações modernas e padronizadas.</p>
 
