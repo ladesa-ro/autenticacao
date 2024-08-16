@@ -1,11 +1,21 @@
 
 <h1 align="center">Autenticação do Ladesa</h1>
 
-<p align="center">Especializado em gerenciar as credenciais de acesso dos usuários, bem como recursos integraveis de login, recuperação de acesso por email e checagem de identidade.</p>
+<p align="center">Fornece recursos de login, recuperação de acesso e checagem de identidade de uma forma muito doce 💝.</p>
+
+<div align="center">
+  <a href="https://github.com/ladesa-ro/auth/actions/workflows/ci.yml?query=branch%3Amain">
+    <img alt="CI Development" src="https://img.shields.io/github/actions/workflow/status/ladesa-ro/auth/ci.yml?style=flat&logo=github&logoColor=white&label=development&branch=main&labelColor=18181B" />
+  </a>
+  
+  <a href="https://github.com/ladesa-ro/auth/actions/workflows/ci.yml?query=branch%3Aproduction">
+    <img alt="CI Development" src="https://img.shields.io/github/actions/workflow/status/ladesa-ro/auth/ci.yml?style=flat&logo=github&logoColor=white&label=production&branch=production&labelColor=18181B" />
+  </a>
+  
+</div>
 
 ----
 
-[![CI Development][action-ci-src]][action-ci-href] [![CI Production][action-ci-prod-src]][action-ci-prod-href]
 
 ## Desenvolvimento Local
 
@@ -43,17 +53,3 @@ down:
 logs:
   # Mostra os registros dos containers
 ```
-
-## Aplicação KeyCloak
-
-<!-- Badges -->
-
-<!-- Badges / Actions / Production  -->
-
-[action-ci-prod-src]: https://img.shields.io/github/actions/workflow/status/ladesa-ro/auth/ci.yml?style=flat&logo=github&logoColor=white&label=production&branch=production&labelColor=18181B
-[action-ci-prod-href]: https://github.com/ladesa-ro/auth/actions/workflows/ci.yml?query=branch%3Aproduction
-
-<!-- Badges / Actions / Development  -->
-
-[action-ci-src]: https://img.shields.io/github/actions/workflow/status/ladesa-ro/auth/ci.yml?style=flat&logo=github&logoColor=white&label=development&branch=main&labelColor=18181B
-[action-ci-href]: https://github.com/ladesa-ro/auth/actions/workflows/ci.yml?query=branch%3Amain
