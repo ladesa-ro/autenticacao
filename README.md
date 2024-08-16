@@ -1,7 +1,7 @@
 
 <h1 align="center">Autenticação do Ladesa</h1>
 
-<p align="center">Microsserviço especializado em cuidar das credenciais de acesso dos usuários, bem como recursos que possibilitem o login, recuperação de acesso por email e checagem de identidade a qualquer outro sistema que queira a integração.</p>
+<p align="center">Microsserviço especializado em cuidar das credenciais de acesso dos usuários, bem como recursos integraveis de login, recuperação de acesso por email e checagem de identidade.</p>
 
 ----
 
@@ -9,9 +9,9 @@
 
 ## Desenvolvimento Local
 
-1. Obter o código fonte do projeto
+### Obter o código fonte do projeto
 
-O primeiro passo para trabalhar com o serviço de Autenticação do Ladesa é obter uma cópia do repositório git. 
+O primeiro passo para trabalhar com o serviço de Autenticação do Ladesa é obter uma cópia dos arquivos deste repositório. 
 
 Por meio dos comandos a seguir, você terá em sua máquina de desenvolvimento o acesso ao repositório deste projeto:
 
