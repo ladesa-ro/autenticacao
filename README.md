@@ -1,7 +1,7 @@
 
 <h1 align="center">Autenticação do Ladesa</h1>
 
-<p align="center">Microsserviço especializado em cuidar das credenciais de acesso dos usuários, bem como recuperação por email e checagem de identidade. Este sistema permite o login de maneira segura e prática com APIs de fácil integração a qualquer sistema moderno.</p>
+<p align="center">Microsserviço especializado em cuidar das credenciais de acesso dos usuários, bem como recursos que possibilitem o login, recuperação de acesso por email e checagem de identidade a qualquer outro sistema que queira a integração.</p>
 
 ----
 
