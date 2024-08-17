@@ -11,7 +11,7 @@ This starter is based on Vite. There is also [a Webpack based starter](https://g
 ```bash
 git clone https://github.com/keycloakify/keycloakify-starter
 cd keycloakify-starter
-yarn install # Or use an other package manager, just be sure to delete the yarn.lock if you do.
+pnpm install
 ```
 
 # Testing the theme locally
@@ -26,9 +26,9 @@ yarn install # Or use an other package manager, just be sure to delete the yarn.
 
 You need to have Maven installed to build the theme (The `mvn` command must be in the PATH).
 
-- On macOS: `brew install maven`
-- On Debian/Ubuntu: `sudo apt-get install maven`
-- On Windows: `choco install openjdk` and `choco install maven` (Or download from [here](https://maven.apache.org/download.cgi))
+-   On macOS: `brew install maven`
+-   On Debian/Ubuntu: `sudo apt-get install maven`
+-   On Windows: `choco install openjdk` and `choco install maven` (Or download from [here](https://maven.apache.org/download.cgi))
 
 ```bash
 npm run build-keycloak-theme
