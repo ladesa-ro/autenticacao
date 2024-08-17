@@ -37,7 +37,7 @@ este projeto surge para cuidar do credenciamento e checagem de identidade a essa
 
 ### Requisitos
 
-Para o desenvolvimento local, é necessário preparar o seu ambiente de trabalho com alguns recursos para mexer com este projeto. A seguir, estão listadas as tecnologias requisitadas para ter em seu computador antes de prosseguir com sua jornada.
+Para o desenvolvimento local, é necessário preparar o seu ambiente de trabalho para mexer com este projeto. A seguir, estão listadas as tecnologias requisitadas para ter em seu computador antes de prosseguir com sua jornada.
 
 > [!TIP]
 > Preparamos dicas e tutoriais para você acerca de cada tópico,
