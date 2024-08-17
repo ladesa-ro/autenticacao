@@ -3,11 +3,11 @@
 <p align="center">Fornece recursos de login, recuperação de acesso e checagem de identidade de uma forma muito doce 💝.</p>
 
 <div align="center">
-  <a href="https://github.com/ladesa-ro/auth/actions/workflows/ci.yml?query=branch%3Amain">
-    <img alt="CI Development" src="https://img.shields.io/github/actions/workflow/status/ladesa-ro/auth/ci.yml?style=for-the-badge&logo=githubactions&logoColor=white&label=development&branch=main&labelColor=18181B" />
+  <a href="https://github.com/ladesa-ro/autenticacao/actions/workflows/ci.yml?query=branch%3Amain">
+    <img alt="CI Development" src="https://img.shields.io/github/actions/workflow/status/ladesa-ro/autenticacao/ci.yml?style=for-the-badge&logo=githubactions&logoColor=white&label=development&branch=main&labelColor=18181B" />
   </a>
-  <a href="https://github.com/ladesa-ro/auth/actions/workflows/ci.yml?query=branch%3Aproduction">
-    <img alt="CI Development" src="https://img.shields.io/github/actions/workflow/status/ladesa-ro/auth/ci.yml?style=for-the-badge&logo=githubactions&logoColor=white&label=production&branch=production&labelColor=18181B" />
+  <a href="https://github.com/ladesa-ro/autenticacao/actions/workflows/ci.yml?query=branch%3Aproduction">
+    <img alt="CI Development" src="https://img.shields.io/github/actions/workflow/status/ladesa-ro/autenticacao/ci.yml?style=for-the-badge&logo=githubactions&logoColor=white&label=production&branch=production&labelColor=18181B" />
   </a>
 </div>
 
