@@ -34,13 +34,15 @@ este projeto surge para cuidar do credenciamento e checagem de identidade a essa
 
 ## Desenvolvimento Local
 
+Muito bom saber que você quer realizar o desenvolvimento local do Autenticação do Ladesa. Após checar os requisitos necessários, você será guiado para obter o código-fonte deste sistema e saber, dentre outras coisas, como iniciar o servidor local de desenvolvimento e como construir a imagem da aplicação.
+
 ### Requisitos
 
 Para o desenvolvimento local, é necessário preparar o seu ambiente de trabalho com alguns recursos necessários para mexer com este projeto. A seguir, estão listadas as tecnologias que você precisa ter em seu computador antes para prosseguir com sua jornada.
 
 > [!TIP]
-> Preparamos dicas e tutoriais para você acerca de cada tópico!
-> Basta clicar nos links para saber mais.
+> Preparamos dicas e tutoriais para você acerca de cada tópico,
+> basta clicar nos links para saber mais.
 
 - [Acesso à Linha de Comando](https://docs.ladesa.com.br/developers/tutorials/os/command-line/);
 - [Git](https://docs.ladesa.com.br/developers/tutorials/source-code/git/);
