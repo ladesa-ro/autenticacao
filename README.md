@@ -41,7 +41,7 @@ Para o desenvolvimento local, é necessário preparar o seu ambiente de trabalho
 - [Docker](https://docs.ladesa.com.br/developers/tutorials/platforms/containers/docker/);
 - GNU Make (documentação inexistente).
 
-> [!TIP] > **Basta clicar nos links acima** para ter acesso a dicas e tutoriais acerca de cada requisito preparado especialmente para você em nossa documentação essencial.
+> [!TIP] **Basta clicar nos links acima** para ter acesso a dicas e tutoriais acerca de cada requisito preparado especialmente para você em nossa documentação essencial.
 
 ### Obter o código-fonte do projeto
 
