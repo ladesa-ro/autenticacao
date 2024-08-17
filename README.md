@@ -24,7 +24,7 @@ Portanto, é necessário uma solução robusta e confiável que forneça os meio
 
 ## Propósito
 
-Dado a necessidade de que os softwares que conectem às plataformas do Ladesa têm de iniciar e confiar nas sessões dos usuários, 
+Diante da necessidade de que os softwares que conectem às plataformas do Ladesa têm de iniciar e confiar nas sessões dos usuários, 
 este projeto surge para cuidar do credenciamento e checagem de identidade a essas aplicações tecnológicas.
 
 ### Objetivo Geral
