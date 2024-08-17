@@ -40,8 +40,8 @@ este projeto surge para cuidar do credenciamento e checagem de identidade a essa
 Para o desenvolvimento local, é necessário preparar o seu ambiente de trabalho para mexer com este projeto. A seguir, estão listadas as tecnologias requisitadas para ter no computador afim de prosseguir aos próximos tópicos.
 
 > [!TIP]
-> Preparamos dicas e tutoriais para você acerca de cada tópico,
-> basta clicar nos links para saber mais.
+> Preparamos dicas e tutoriais para você acerca de cada requisito,
+> **basta clicar nos links** para saber mais.
 
 - [Acesso à Linha de Comando](https://docs.ladesa.com.br/developers/tutorials/os/command-line/);
 - [Git](https://docs.ladesa.com.br/developers/tutorials/source-code/git/);
