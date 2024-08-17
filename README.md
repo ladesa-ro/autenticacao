@@ -20,7 +20,7 @@ Os sistemas do Ladesa, assim como muitos aplicativos informáticos modernos, tra
 
 Diante disso, surge a demanda de identificar e representar as pessoas em ambientes virtuais para, dentre outras coisas, reconhecer as autorias de ações e delimitar quais operações cada perfil possa realizar em diferentes contextos. 
 
-Portanto, é necessário uma solução robusta e confiável que forneça os meios necessários para a correta identificação dos indivíduos, a qual todo o ecossistema informático possa confiar.
+Portanto, é necessário uma solução robusta e confiável que forneça os meios necessários para a correta identificação dos indivíduos, com a qual todo o ecossistema informático possa contar.
 
 ## Propósito
 
@@ -33,11 +33,11 @@ este projeto surge para cuidar do credenciamento e checagem de identidade a essa
 
 ## Desenvolvimento Local
 
-É muito bom saber que você quer realizar o desenvolvimento do Autenticação do Ladesa. Após checar os requisitos necessários, você será guiado para obter o código-fonte deste sistema e saber, dentre outras coisas, como iniciar o servidor local de desenvolvimento e como construir a imagem da aplicação.
+É muito bom saber que você quer realizar o desenvolvimento do Autenticação do Ladesa. Após checar os requisitos necessários, você será guiado para obter o código-fonte deste sistema e saber, dentre outras coisas, como iniciar o desenvolvimento, subir um servidor local e construir a imagem da aplicação.
 
 ### Requisitos
 
-Para o desenvolvimento local, é necessário preparar o seu ambiente de trabalho para mexer com este projeto. A seguir, estão listadas as tecnologias requisitadas para ter em seu computador afim de prosseguir com sua jornada.
+Para o desenvolvimento local, é necessário preparar o seu ambiente de trabalho para mexer com este projeto. A seguir, estão listadas as tecnologias requisitadas para ter no computador afim de prosseguir aos próximos tópicos.
 
 > [!TIP]
 > Preparamos dicas e tutoriais para você acerca de cada tópico,
@@ -48,7 +48,7 @@ Para o desenvolvimento local, é necessário preparar o seu ambiente de trabalho
 - [Docker](https://docs.ladesa.com.br/developers/tutorials/platforms/containers/docker/);
 - GNU Make (documentação inexistente).
 
-### Obter o código fonte do projeto
+### Obter o código-fonte do projeto
 
 O primeiro passo para trabalhar com o serviço de Autenticação do Ladesa é obter uma cópia dos arquivos deste repositório. 
 
