@@ -7,10 +7,12 @@ services:
       - "./volumes/db/scripts/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d"
     env_file:
       - .kc-db.env
+
     networks:
       ladesa-net:
+
     ports:
-      - 127.128.5.11:5432:5432
+      - 23080:5432
 
   ladesa-ro-auth:
     build:
@@ -19,17 +21,42 @@ services:
         - KEYCLOAK_EXTRA_ARGS=-Dkeycloak.profile.feature.scripts=enabled
     entrypoint: /opt/keycloak/bin/kc.sh
     command: start-dev --import-realm
+    
     container_name: ladesa-ro-auth
+    
     volumes:
       - ./data/import:/opt/keycloak/data/import/
+    
     env_file:
       - .kc.env
+    
     depends_on:
       - ladesa-ro-auth-db
+    
     networks:
       ladesa-net:
+
     ports:
-      - 127.128.5.10:8080:8080
+      - 23032:5432
+    
+    labels:
+      #
+      # ===================================================================
+      - "traefik.enable=true"
+      # ===================================================================
+      - "traefik.http.services.sso.loadbalancer.server.port=8080"
+      # ------------
+      - "traefik.http.routers.sso.rule=Host(`sso.ladesa.localhost`)"
+      - "traefik.http.routers.sso.entrypoints=websecure"
+      - "traefik.http.routers.sso.tls=true"
+      - "traefik.http.routers.sso.service=sso"
+      # ------------
+      - "traefik.http.routers.sso-insecure.rule=Host(`sso.ladesa.localhost`)"
+      - "traefik.http.routers.sso-insecure.entrypoints=web"
+      - "traefik.http.routers.sso-insecure.tls=false"
+      - "traefik.http.routers.sso-insecure.service=sso"
+      # ===================================================================
+
 
 networks:
   ladesa-net:
