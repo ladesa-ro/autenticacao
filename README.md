@@ -45,7 +45,7 @@ Para o desenvolvimento local, é necessário preparar o seu ambiente de trabalho
 - [Acesso à Linha de Comando](https://docs.ladesa.com.br/developers/tutorials/os/command-line/);
 - [Git](https://docs.ladesa.com.br/developers/tutorials/source-code/git/);
 - [Docker](https://docs.ladesa.com.br/developers/tutorials/platforms/containers/docker/);
-- GNU Make;
+- GNU Make (documentação inexistente).
 
 ### Obter o código fonte do projeto
 
