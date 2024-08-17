@@ -1,30 +1,27 @@
-
 <h1 align="center">Autenticação do Ladesa</h1>
 
 <p align="center">Fornece recursos de login, recuperação de acesso e checagem de identidade de uma forma muito doce 💝.</p>
 
 <div align="center">
   <a href="https://github.com/ladesa-ro/auth/actions/workflows/ci.yml?query=branch%3Amain">
-    <img alt="CI Development" src="https://img.shields.io/github/actions/workflow/status/ladesa-ro/auth/ci.yml?style=flat&logo=github&logoColor=white&label=development&branch=main&labelColor=18181B" />
+    <img alt="CI Development" src="https://img.shields.io/github/actions/workflow/status/ladesa-ro/auth/ci.yml?style=for-the-badge&logo=githubactions&logoColor=white&label=development&branch=main&labelColor=18181B" />
   </a>
-  
   <a href="https://github.com/ladesa-ro/auth/actions/workflows/ci.yml?query=branch%3Aproduction">
-    <img alt="CI Development" src="https://img.shields.io/github/actions/workflow/status/ladesa-ro/auth/ci.yml?style=flat&logo=github&logoColor=white&label=production&branch=production&labelColor=18181B" />
+    <img alt="CI Development" src="https://img.shields.io/github/actions/workflow/status/ladesa-ro/auth/ci.yml?style=for-the-badge&logo=githubactions&logoColor=white&label=production&branch=production&labelColor=18181B" />
   </a>
-  
 </div>
 
 ## Motivação
 
-Os sistemas do Ladesa, assim como muitos aplicativos informáticos modernos, trabalham com a interação entre humanos e máquinas. 
+Os sistemas do Ladesa, assim como muitos aplicativos informáticos modernos, trabalham com a interação entre humanos e máquinas.
 
-Diante disso, surge a demanda de identificar e representar as pessoas em ambientes virtuais para, dentre outras coisas, reconhecer as autorias de ações e delimitar quais operações cada perfil possa realizar em diferentes contextos. 
+Diante disso, surge a demanda de identificar e representar as pessoas em ambientes virtuais para, dentre outras coisas, reconhecer as autorias de ações e delimitar quais operações cada perfil possa realizar em diferentes contextos.
 
 Portanto, é necessário uma solução robusta e confiável que forneça os meios necessários para a correta identificação dos indivíduos, com a qual todo o ecossistema informático possa contar.
 
 ## Propósito
 
-Diante da necessidade de que os softwares que conectem às plataformas do Ladesa têm de iniciar e confiar nas sessões dos usuários, 
+Diante da necessidade de que os softwares que conectem às plataformas do Ladesa têm de iniciar e confiar nas sessões dos usuários,
 este projeto surge para cuidar do credenciamento e checagem de identidade a essas aplicações tecnológicas.
 
 ### Objetivo Geral
@@ -39,18 +36,18 @@ este projeto surge para cuidar do credenciamento e checagem de identidade a essa
 
 Para o desenvolvimento local, é necessário preparar o seu ambiente de trabalho para mexer com este projeto. A seguir, estão listadas as tecnologias requisitadas para ter no computador afim de prosseguir aos próximos tópicos.
 
-> [!TIP]
-> Preparamos dicas e tutoriais para você acerca de cada requisito,
-> **basta clicar nos links** para saber mais.
-
 - [Acesso à Linha de Comando](https://docs.ladesa.com.br/developers/tutorials/os/command-line/);
 - [Git](https://docs.ladesa.com.br/developers/tutorials/source-code/git/);
 - [Docker](https://docs.ladesa.com.br/developers/tutorials/platforms/containers/docker/);
 - GNU Make (documentação inexistente).
 
+> [!TIP]
+> Preparamos dicas e tutoriais para você acerca de cada requisito,
+> **basta clicar nos links acima** para saber mais.
+
 ### Obter o código-fonte do projeto
 
-O primeiro passo para trabalhar com o serviço de Autenticação do Ladesa é obter uma cópia dos arquivos deste repositório. 
+O primeiro passo para trabalhar com o serviço de Autenticação do Ladesa é obter uma cópia dos arquivos deste repositório.
 
 Por meio dos comandos a seguir, você terá em sua máquina de desenvolvimento o acesso ao repositório deste projeto:
 
