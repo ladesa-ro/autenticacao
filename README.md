@@ -20,11 +20,10 @@ Os sistemas do Ladesa, assim como muitos aplicativos informáticos modernos, tra
 
 Diante disso, surge a demanda de identificar e representar as pessoas em ambientes virtuais para, dentre outras coisas, reconhecer as autorias de ações e delimitar quais operações cada perfil possa realizar em diferentes contextos. 
 
-Portanto, é necessário uma solução robusta e confiável que forneça os meios necessários para a correta identificação dos indivíduos, a qual todo o ecossistema possa confiar.
+Portanto, é necessário uma solução robusta e confiável que forneça os meios necessários para a correta identificação dos indivíduos, a qual todo o ecossistema informático possa confiar.
 
 ## Propósito
 
-<!-- Dado a necessidade apresentada de gerenciar os perfis de acesso, --> 
 Dado a necessidade de que os softwares que conectem às plataformas do Ladesa têm de iniciar e confiar nas sessões dos usuários, 
 este projeto surge para cuidar do credenciamento e checagem de identidade a essas aplicações tecnológicas.
 
@@ -34,11 +33,11 @@ este projeto surge para cuidar do credenciamento e checagem de identidade a essa
 
 ## Desenvolvimento Local
 
-Muito bom saber que você quer realizar o desenvolvimento local do Autenticação do Ladesa. Após checar os requisitos necessários, você será guiado para obter o código-fonte deste sistema e saber, dentre outras coisas, como iniciar o servidor local de desenvolvimento e como construir a imagem da aplicação.
+É muito bom saber que você quer realizar o desenvolvimento local do Autenticação do Ladesa. Após checar os requisitos necessários, você será guiado para obter o código-fonte deste sistema e saber, dentre outras coisas, como iniciar o servidor local de desenvolvimento e como construir a imagem da aplicação.
 
 ### Requisitos
 
-Para o desenvolvimento local, é necessário preparar o seu ambiente de trabalho com alguns recursos necessários para mexer com este projeto. A seguir, estão listadas as tecnologias que você precisa ter em seu computador antes para prosseguir com sua jornada.
+Para o desenvolvimento local, é necessário preparar o seu ambiente de trabalho com alguns recursos para mexer com este projeto. A seguir, estão listadas as tecnologias requisitadas para ter em seu computador antes de prosseguir com sua jornada.
 
 > [!TIP]
 > Preparamos dicas e tutoriais para você acerca de cada tópico,
