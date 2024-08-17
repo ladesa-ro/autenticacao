@@ -1,4 +1,4 @@
-FROM node:22 as keycloakify_jar_builder
+FROM node:22 AS keycloakify_jar_builder
 
 RUN apt-get update && \
   apt-get install -y openjdk-17-jdk && \
@@ -15,7 +15,7 @@ COPY ./themes/web/ /opt/app/
 
 RUN pnpm build-keycloak-theme
 
-FROM quay.io/keycloak/keycloak:25.0 as builder
+FROM quay.io/keycloak/keycloak:25.0 AS builder
 ENV KC_HEALTH_ENABLED=true
 ENV KC_METRICS_ENABLED=false
 ENV KC_FEATURES=docker,token-exchange,recovery-codes
