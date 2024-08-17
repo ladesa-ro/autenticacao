@@ -34,16 +34,14 @@ este projeto surge para cuidar do credenciamento e checagem de identidade a essa
 
 ### Requisitos
 
-Para o desenvolvimento local, é necessário preparar o seu ambiente de trabalho para mexer com este projeto. A seguir, estão listadas as tecnologias requisitadas para ter no computador afim de prosseguir aos próximos tópicos.
+Para o desenvolvimento local, é necessário preparar o seu ambiente de trabalho para mexer com este projeto. A seguir, estão listadas as tecnologias requisitadas para ter no computador.
 
 - [Acesso à Linha de Comando](https://docs.ladesa.com.br/developers/tutorials/os/command-line/);
 - [Git](https://docs.ladesa.com.br/developers/tutorials/source-code/git/);
 - [Docker](https://docs.ladesa.com.br/developers/tutorials/platforms/containers/docker/);
 - GNU Make (documentação inexistente).
 
-> [!TIP]
-> Preparamos dicas e tutoriais para você acerca de cada requisito,
-> **basta clicar nos links acima** para saber mais.
+> [!TIP] > **Basta clicar nos links acima** para ter acesso a dicas e tutoriais acerca de cada requisito preparado especialmente para você em nossa documentação essencial.
 
 ### Obter o código-fonte do projeto
 
