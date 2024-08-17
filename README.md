@@ -25,8 +25,8 @@ Portanto, é necessário uma solução robusta e confiável que forneça os meio
 ## Propósito
 
 <!-- Dado a necessidade apresentada de gerenciar os perfis de acesso, --> 
-Dado a necessidade de que os serviços integrados aos projetos do Ladesa têm de iniciar e confiar nas sessões dos usuários, 
-este projeto surge para cuidar do credenciamento e checagem de identidade a qualquer outra aplicação tecnológica que queira a integração.
+Dado a necessidade de que os softwares que conectem às plataformas do Ladesa têm de iniciar e confiar nas sessões dos usuários, 
+este projeto surge para cuidar do credenciamento e checagem de identidade a essas aplicações tecnológicas.
 
 ### Objetivo Geral
 
