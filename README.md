@@ -9,6 +9,9 @@
   <a href="https://github.com/ladesa-ro/autenticacao/actions/workflows/ci.yml?query=branch%3Aproduction">
     <img alt="CI Development" src="https://img.shields.io/github/actions/workflow/status/ladesa-ro/autenticacao/ci.yml?style=for-the-badge&logo=githubactions&logoColor=white&label=production&branch=production&labelColor=18181B" />
   </a>
+  <a href="https://github.com/ladesa-ro/autenticacao/actions/workflows/ci.yml?query=branch%3Aproduction">
+    <img alt="CI Development" src="https://img.shields.io/badge/DOCS.LADESA-118d3b?style=for-the-badge&logo=readme&logoColor=white&label=Documenta%C3%A7%C3%A3o&labelColor=18181b" />
+  </a>
 </div>
 
 ## Motivação
