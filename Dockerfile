@@ -1,4 +1,4 @@
-FROM node:22 AS keycloakify_jar_builder
+FROM node:23 AS keycloakify_jar_builder
 
 RUN apt-get update && \
   apt-get install -y openjdk-17-jdk && \
