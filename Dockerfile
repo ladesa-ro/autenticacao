@@ -15,7 +15,7 @@ COPY ./themes/web/ /opt/app/
 
 RUN pnpm build-keycloak-theme
 
-FROM quay.io/keycloak/keycloak:25.0 AS builder
+FROM quay.io/keycloak/keycloak:26.0 AS builder
 ENV KC_HEALTH_ENABLED=true
 ENV KC_METRICS_ENABLED=false
 ENV KC_FEATURES=docker,token-exchange,recovery-codes
@@ -25,7 +25,7 @@ WORKDIR /opt/keycloak
 COPY --from=keycloakify_jar_builder /opt/app/dist_keycloak/keycloak-theme-for-kc-22-and-above.jar /opt/keycloak/providers/
 RUN /opt/keycloak/bin/kc.sh build --health-enabled=true
 
-FROM quay.io/keycloak/keycloak:25.0
+FROM quay.io/keycloak/keycloak:26.0
 COPY --from=builder /opt/keycloak/ /opt/keycloak/
 # COPY ./devops/development/data/import /opt/keycloak/data/import/
 WORKDIR /opt/keycloak
