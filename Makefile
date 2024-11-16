@@ -2,10 +2,10 @@
 d_network=ladesa-net
 d_container_app=ladesa-ro-auth
 
-compose_options=--file .devops/development/docker-compose.yml -p ladesa-ro-auth
+compose_options=--file .development/docker-compose.yml -p ladesa-ro-auth
 
 setup:
-	$(shell (cd .devops/development; find . -type f -name "*.example" -exec sh -c 'cp -n {} $$(basename {} .example)' \;))
+	$(shell (cd .development; find . -type f -name "*.example" -exec sh -c 'cp -n {} $$(basename {} .example)' \;))
 	$(shell (bash -c "docker network create $(d_network) &>/dev/null"))
 
 up:

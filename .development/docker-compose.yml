@@ -2,9 +2,11 @@ services:
   ladesa-ro-auth-db:
     image: bitnami/postgresql:15
     container_name: ladesa-ro-auth-db
+
     volumes:
       - "ladesa-ro-auth-db-data:/bitnami/postgresql"
       - "./volumes/db/scripts/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d"
+
     env_file:
       - .kc-db.env
 
@@ -14,33 +16,44 @@ services:
     ports:
       - 23080:5432
 
-  ladesa-ro-auth:
+  ladesa-ro-auth-theme:
+    container_name: ladesa-ro-auth-theme
+
     build:
-      context: ../../
+      context: ./images/development
+
+    command: tail -f /dev/null
+
+    volumes:
+      - ../:/var/lib/ladesa-ro/ctx
+
+  ladesa-ro-auth:
+    container_name: ladesa-ro-auth
+
+    build:
+      context: ../
       args:
         - KEYCLOAK_EXTRA_ARGS=-Dkeycloak.profile.feature.scripts=enabled
+
     entrypoint: /opt/keycloak/bin/kc.sh
     command: start-dev --import-realm
-    
-    container_name: ladesa-ro-auth
-    
-    volumes:
-      - ./data/import:/opt/keycloak/data/import/
-    
+
     env_file:
       - .kc.env
-    
+
+    volumes:
+      - ./data/import:/opt/keycloak/data/import/
+
     depends_on:
       - ladesa-ro-auth-db
-    
+
     networks:
       ladesa-net:
 
     ports:
       - 23032:5432
-    
+
     labels:
-      #
       # ===================================================================
       - "traefik.enable=true"
       # ===================================================================
@@ -56,7 +69,6 @@ services:
       - "traefik.http.routers.sso-insecure.tls=false"
       - "traefik.http.routers.sso-insecure.service=sso"
       # ===================================================================
-
 
 networks:
   ladesa-net:

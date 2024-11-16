@@ -14,6 +14,12 @@
   </a>
 </div>
 
+<div align="center">
+  <a href="#">
+    <img alt="Ver na Documentação do Ladesa" src="https://img.shields.io/badge/Aprender_na_Documenta%C3%A7%C3%A3o_do_Ladesa-18181b?style=for-the-badge&logo=readme&logoColor=white" />
+  </a>
+</div>
+
 ## Motivação
 
 Os sistemas do Ladesa, assim como muitos aplicativos informáticos modernos, trabalham com a interação entre humanos e máquinas.
@@ -31,6 +37,11 @@ este projeto surge para cuidar do credenciamento e checagem de identidade a essa
 
 ### Objetivos Específicos
 
+- Login unificado (Single-Sign On);
+- Fedração de Usuários (User Federation);
+- Identity Brokering and Social Login (Identity Brokering and Social Login);
+- Protocolos Padronizados (Standard Protocols).
+
 ## Desenvolvimento Local
 
 É muito bom saber que você quer realizar o desenvolvimento do Autenticação do Ladesa. Após checar os requisitos necessários, você será guiado para obter o código-fonte deste sistema e saber, dentre outras coisas, como iniciar o desenvolvimento, subir um servidor local e construir a imagem da aplicação.
@@ -46,7 +57,7 @@ Para o desenvolvimento local, é necessário preparar o seu ambiente de trabalho
 
 > [!TIP]
 >
-> **Basta clicar nos links acima** para ter acesso às nossas dicas e tutoriais :)
+> **Basta clicar nos links acima** para ter acesso às nossas dicas e tutoriais :).
 
 ### Obter o código-fonte do projeto
 
@@ -55,8 +66,8 @@ O primeiro passo para trabalhar com o serviço de Autenticação do Ladesa é ob
 Por meio dos comandos a seguir, você terá em sua máquina de desenvolvimento o acesso ao repositório deste projeto:
 
 ```sh
-git clone https://github.com/ladesa-ro/auth.git
-cd auth
+git clone https://github.com/ladesa-ro/autenticacao.git
+cd autenticacao
 ```
 
 ### Serviços do [.devops/development/docker-compose.yml](./.devops/development/docker-compose.yml)
