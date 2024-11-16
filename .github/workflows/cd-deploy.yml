@@ -29,15 +29,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: deploy resources to kubernetes cluster
-        working-directory: ${{ env.DEVELOPMENT_PWD }}
-        run: |
-          kubectl kustomize . | envsubst | kubectl apply -f -;
-
-          kubectl rollout restart \
-            deployment.apps/${{ env.DEVELOPMENT_K8S_DEPLOYMENT }} \
-            --namespace ${{ env.DEVELOPMENT_K8S_NAMESPACE }} \
-          ;
+      - uses: ./.github/actions/deploy-k8s-kustomize/action.yml
+        with:
+          pwd: ${{ env.DEVELOPMENT_PWD }}
+          deployment: ${{ env.DEVELOPMENT_K8S_DEPLOYMENT }}
+          namespace: ${{ env.DEVELOPMENT_K8S_NAMESPACE }}
 
   deploy-production:
     name: Deploy to Cluster (Production)

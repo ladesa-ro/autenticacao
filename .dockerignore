@@ -6,3 +6,5 @@ dist
 Dockerfile
 .vitepress/cache
 .github
+.development
+.devops

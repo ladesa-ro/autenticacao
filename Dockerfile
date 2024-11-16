@@ -1,7 +1,7 @@
 # ================================================================== #
 # Builder of theme jars                                              #
 # ================================================================== #
-FROM node:22 AS keycloakify_jar_builder
+FROM node:23 AS sso-theme-builder
 
 RUN apt-get update && \
   apt-get install -y openjdk-17-jdk && \
@@ -22,7 +22,7 @@ RUN pnpm build-keycloak-theme
 # ================================================================== #
 # Builder of keycloak with essential features                        #
 # ================================================================== #
-FROM quay.io/keycloak/keycloak:25.0 AS builder
+FROM quay.io/keycloak/keycloak:26.0 AS sso-builder
 
 ENV KC_HEALTH_ENABLED=true
 ENV KC_METRICS_ENABLED=false
@@ -32,18 +32,17 @@ ENV KEYCLOAK_EXTRA_ARGS=-Dkeycloak.profile.feature.scripts=enabled
 
 WORKDIR /opt/keycloak
 
-COPY --from=keycloakify_jar_builder /opt/app/dist_keycloak/keycloak-theme-f or-kc-22-and-above.jar /opt/keycloak/providers/
+COPY --from=sso-theme-builder /opt/app/dist_keycloak/ladesa-ro-theme.jar /opt/keycloak/providers/
 
 RUN /opt/keycloak/bin/kc.sh build --health-enabled=true
 
 # ================================================================== #
 # Runtime keycloak with theme and essential features                 #
 # ================================================================== #
-FROM quay.io/keycloak/keycloak:25.0
+FROM quay.io/keycloak/keycloak:26.0 AS sso-runtime
 
 WORKDIR /opt/keycloak
-COPY --from=builder /opt/keycloak/ /opt/keycloak/
-# COPY ./devops/development/data/import /opt/keycloak/data/import/
+COPY --from=sso-builder /opt/keycloak/ /opt/keycloak/
 
 ENTRYPOINT [ \
   "/opt/keycloak/bin/kc.sh", \
