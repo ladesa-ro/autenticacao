@@ -8,8 +8,11 @@ on:
 
 jobs:
   cd_build_push:
-    name: "Build and Push"
+    name: "Build and Push (Development)"
     runs-on: ubuntu-latest
+    
+    environment:
+      name: development
 
     steps:
       - uses: actions/checkout@v4
