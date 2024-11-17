@@ -10,7 +10,7 @@ jobs:
   cd_build_push:
     name: "Build and Push (Development)"
     runs-on: ubuntu-latest
-    
+
     environment:
       name: development
 
@@ -41,7 +41,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: ./.github/actions/deploy-k8s-kustomize/action.yml
+      - uses: ./.github/actions/deploy-k8s-kustomize
         with:
           pwd: ${{ env.DEPLOYMENT_PWD }}
           deployment: ${{ env.DEPLOYMENT_K8S_DEPLOYMENT }}
