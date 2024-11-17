@@ -40,7 +40,7 @@ inputs:
 runs:
   using: composite
   steps:
-    - shell: base
+    - shell: bash
       run: echo ${{ inputs.push-image-registry-url }}
       
     - name: Set up QEMU
