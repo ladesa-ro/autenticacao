@@ -1,7 +1,7 @@
 # ================================================================== #
 # Builder of theme jars                                              #
 # ================================================================== #
-FROM node:23 AS sso-theme-builder
+FROM node:22 AS sso-theme-builder
 
 RUN apt-get update && \
   apt-get install -y openjdk-17-jdk && \
@@ -32,7 +32,7 @@ ENV KEYCLOAK_EXTRA_ARGS=-Dkeycloak.profile.feature.scripts=enabled
 
 WORKDIR /opt/keycloak
 
-COPY --from=sso-theme-builder /opt/app/dist_keycloak/ladesa-ro-theme.jar /opt/keycloak/providers/
+# COPY --from=sso-theme-builder /opt/app/dist_keycloak/ladesa-ro-theme.jar /opt/keycloak/providers/
 
 RUN /opt/keycloak/bin/kc.sh build --health-enabled=true
 
