@@ -2,8 +2,8 @@ name: "Continuous Deployment – K8S Kustomize"
 description: "Deploy resources to kubernetes cluster using kustomize definitions"
 
 inputs:
-  env-json:
-    description: "json with key value envs for the service secret"
+  runtime-env:
+    description: "string with key value envs for the service secret"
     required: true
   pwd:
     description: "working directory"
@@ -22,17 +22,11 @@ runs:
       shell: bash
       working-directory: ${{ inputs.pwd }}
       env:
-        ENV_RUNTIME_JSON: ${{ inputs.env-json }}
+        ENV_RUNTIME_KEY_VALUE: ${{ inputs.runtime-env }}
+        ENV_RUNTIME_SECRET_NAME: "ladesa-ro-sso-secrets"
       run: |
-        ENV_RUNTIME_SECRET_NAME="ladesa-ro-sso-secrets";
-
-        ENV_RUNTIME_KEY_VALUE=$( \
-          echo "${ENV_RUNTIME_JSON}" \
-          | jq -r 'to_entries|map("\(.key)=\(.value|tostring)")|.[]' \
-        );
-
         kubectl create secret generic ${ENV_RUNTIME_SECRET_NAME} \
-          --from-env-file=<(echo "$ENV_RUNTIME_KEY_VALUE") \
+          --from-env-file=<(echo "${ENV_RUNTIME_KEY_VALUE}") \
           --namespace=${{ inputs.namespace }} \
         ;
 
