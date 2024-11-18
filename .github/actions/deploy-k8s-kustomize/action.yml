@@ -18,10 +18,26 @@ runs:
     - name: deploy resources to kubernetes cluster
       shell: bash
       working-directory: ${{ inputs.pwd }}
+      env:
+        ENV_CONTEXT_JSON: ${{ toJson(secrets) }}
       run: |
-        kubectl kustomize . | envsubst | kubectl apply -f -;
+        ENV_CONTEXT_KEY_VALUE=$( \
+          echo "${ENV_CONTEXT_JSON}" \
+          | jq -r 'to_entries|map("\(.key)=\(.value|tostring)")|.[]' \
+        );
 
-        kubectl rollout restart \
-          deployment.apps/${{ inputs.deployment }} \
-          --namespace ${{ inputs.namespace }} \
+        echo "$ENV_CONTEXT_KEY_VALUE";
+
+        # --from-env-file=<(env -i sh -c "set -a; ${ENV_CONTEXT_KEY_VALUE}; printenv | grep -v 
+
+        kubectl create secret generic ladesa-ro-secrets \
+          --from-env-file=<(echo "$ENV_CONTEXT_KEY_VALUE") \
+          --namespace=${{ inputs.namespace }}
         ;
+
+        # kubectl kustomize . | envsubst | kubectl apply -f -;
+
+        # kubectl rollout restart \
+        #   deployment.apps/${{ inputs.deployment }} \
+        #   --namespace ${{ inputs.namespace }} \
+        # ;
