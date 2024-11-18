@@ -26,9 +26,11 @@ runs:
         ENV_RUNTIME_SECRET_NAME: "ladesa-ro-sso-secrets"
       run: |
         kubectl create secret generic ${ENV_RUNTIME_SECRET_NAME} \
+          --namespace="${{ inputs.namespace }}"" \
+          --dry-run=client \
+          -o=yaml \
           --from-env-file=<(echo "${ENV_RUNTIME_KEY_VALUE}") \
-          --namespace=${{ inputs.namespace }} \
-        ;
+        | kubectl apply -f;
 
         # kubectl kustomize . | envsubst | kubectl apply -f -;
 
