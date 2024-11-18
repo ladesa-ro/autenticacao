@@ -43,6 +43,7 @@ jobs:
 
       - uses: ./.github/actions/deploy-k8s-kustomize
         with:
+          env-json: ${{ toJson(secrets) }}
           pwd: ${{ env.DEPLOYMENT_PWD }}
           deployment: ${{ env.DEPLOYMENT_K8S_DEPLOYMENT }}
           namespace: ${{ env.DEPLOYMENT_K8S_NAMESPACE }}

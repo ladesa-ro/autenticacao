@@ -2,6 +2,9 @@ name: "Continuous Deployment – K8S Kustomize"
 description: "Deploy resources to kubernetes cluster using kustomize definitions"
 
 inputs:
+  env-json:
+    description: "json with key value envs for the service secret"
+    required: true
   pwd:
     description: "working directory"
     required: true
@@ -19,7 +22,7 @@ runs:
       shell: bash
       working-directory: ${{ inputs.pwd }}
       env:
-        ENV_CONTEXT_JSON: ${{ toJson(secrets) }}
+        ENV_CONTEXT_JSON: ${{ inputs.env-json }}
       run: |
         ENV_CONTEXT_KEY_VALUE=$( \
           echo "${ENV_CONTEXT_JSON}" \
