@@ -22,20 +22,18 @@ runs:
       shell: bash
       working-directory: ${{ inputs.pwd }}
       env:
-        ENV_CONTEXT_JSON: ${{ inputs.env-json }}
+        ENV_RUNTIME_JSON: ${{ inputs.env-json }}
       run: |
-        ENV_CONTEXT_KEY_VALUE=$( \
-          echo "${ENV_CONTEXT_JSON}" \
+        ENV_RUNTIME_SECRET_NAME="ladesa-ro-sso-secrets";
+
+        ENV_RUNTIME_KEY_VALUE=$( \
+          echo "${ENV_RUNTIME_JSON}" \
           | jq -r 'to_entries|map("\(.key)=\(.value|tostring)")|.[]' \
         );
 
-        echo "$ENV_CONTEXT_KEY_VALUE";
-
-        # --from-env-file=<(env -i sh -c "set -a; ${ENV_CONTEXT_KEY_VALUE}; printenv | grep -v 
-
-        kubectl create secret generic ladesa-ro-secrets \
-          --from-env-file=<(echo "$ENV_CONTEXT_KEY_VALUE") \
-          --namespace=${{ inputs.namespace }}
+        kubectl create secret generic ${ENV_RUNTIME_SECRET_NAME} \
+          --from-env-file=<(echo "$ENV_RUNTIME_KEY_VALUE") \
+          --namespace=${{ inputs.namespace }} \
         ;
 
         # kubectl kustomize . | envsubst | kubectl apply -f -;
