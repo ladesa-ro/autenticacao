@@ -50,13 +50,12 @@ jobs:
         run: |
           ENV_STRIP_PREFIX="RUNTIME_";
 
+          # Transforma os (secrets e vars) presentes nesta action para o runtime do sistema
+          # Combina objetos JSON, filtra por prefixo, e converte para key=value
           RUNTIME_ENV_KEY_VALUE=$(\
-          # para combinar objetos \
             echo '${{ env.ENV_SECRETS_JSON }} ${{ env.ENV_VARS_JSON }}' \
               | jq -s add \
-          # para filtrar os valores \
               | jq --arg prefix "$ENV_STRIP_PREFIX" 'with_entries(select(.key | startswith($prefix)) | .key |= sub("^" + $prefix; ""))' \
-          # para produzir linhas chave=valor \
               | jq -r 'to_entries|map("\(.key)=\(.value|tostring)")|.[]' \
           );
 
