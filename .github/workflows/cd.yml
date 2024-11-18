@@ -48,20 +48,17 @@ jobs:
       - name: produce key=value with runtime env vars
         shell: bash
         run: |
-          ENV_STRIP_PREFIX="RUNTIME_"
+          ENV_STRIP_PREFIX="RUNTIME_";
 
           # 1. Transforma os (secrets e vars) presentes nesta action para o runtime do sistema
           RUNTIME_ENV_KEY_VALUE=$(\
             # para combinar objetos \
-              echo '${{ env.ENV_SECRETS_JSON }} ${{ env.ENV_VARS_JSON }}' \
+            echo '${{ env.ENV_SECRETS_JSON }} ${{ env.ENV_VARS_JSON }}' \
               | jq -s add \
+            # para filtrar os valores \
+              | jq --arg prefix "$ENV_STRIP_PREFIX" 'with_entries(select(.key | startswith($prefix)) | .key |= sub("^" + $prefix; ""))' \
             # para produzir linhas chave=valor \
-              # | jq -r 'to_entries|map("\(.key)=\(.value|tostring)")|.[]' \
-              jq -r --arg prefix "$ENV_STRIP_PREFIX" ' \
-                to_entries | \
-                map(select(.key | startswith($prefix)) | \
-                "\(.key[length($prefix):])=\(.value|tostring)") | \
-              .[]' \
+              | jq -r 'to_entries|map("\(.key)=\(.value|tostring)")|.[]' \
           );
 
           echo "$RUNTIME_ENV_KEY_VALUE"
