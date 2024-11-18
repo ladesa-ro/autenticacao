@@ -24,17 +24,20 @@ runs:
       env:
         ENV_RUNTIME_KEY_VALUE: ${{ inputs.runtime-env }}
         ENV_RUNTIME_SECRET_NAME: "ladesa-ro-sso-secrets"
+        
+        K8S_DEPLOYMENT: ${{ inputs.deployment }}
+        K8S_NAMESPACE: ${{ inputs.namespace }}
       run: |
         kubectl create secret generic ${ENV_RUNTIME_SECRET_NAME} \
-          --namespace="${{ inputs.namespace }}"" \
-          --dry-run=client \
-          -o=yaml \
+          --namespace="${K8S_NAMESPACE}" \
+          --dry-run="client" \
+          -o="yaml" \
           --from-env-file=<(echo "${ENV_RUNTIME_KEY_VALUE}") \
         | kubectl apply -f;
 
         # kubectl kustomize . | envsubst | kubectl apply -f -;
 
         # kubectl rollout restart \
-        #   deployment.apps/${{ inputs.deployment }} \
-        #   --namespace ${{ inputs.namespace }} \
+        #   deployment.apps/${K8S_DEPLOYMENT} \
+        #   --namespace ${K8S_NAMESPACE} \
         # ;
