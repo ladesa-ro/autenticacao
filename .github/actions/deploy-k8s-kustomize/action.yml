@@ -33,7 +33,7 @@ runs:
           --dry-run="client" \
           -o="yaml" \
           --from-env-file=<(echo "${ENV_RUNTIME_KEY_VALUE}") \
-        | kubectl apply -f;
+        | kubectl apply -f -;
 
         # kubectl kustomize . | envsubst | kubectl apply -f -;
 
