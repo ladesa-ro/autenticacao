@@ -38,11 +38,6 @@ jobs:
       name: development
       url: ${{ env.DEPLOYMENT_URL }}
 
-    env:
-      ENV_PREFIX_RUNTIME: "${{ vars.ENV_PREFIX_RUNTIME }}"
-      ENV_SECRETS_JSON: "${{ toJson(secrets) }}"
-      ENV_VARS_JSON: "${{ toJson(vars) }}"
-
     steps:
       - uses: actions/checkout@v4
 
@@ -53,9 +48,9 @@ jobs:
           # Transforma os (secrets e vars) presentes nesta action para o runtime do sistema
           # Combina objetos JSON, filtra por prefixo, e converte para key=value
           RUNTIME_ENV=$(\
-            echo '${{ env.ENV_SECRETS_JSON }} ${{ env.ENV_VARS_JSON }}' \
+            echo '${{ toJson(secrets) }} ${{ toJson(vars) }}' \
               | jq -s add \
-              | jq --arg prefix "${{ env.ENV_PREFIX_RUNTIME }}" 'with_entries(select(.key | startswith($prefix)) | .key |= sub("^" + $prefix; ""))' \
+              | jq --arg prefix "${{ vars.PREFIX_RUNTIME }}" 'with_entries(select(.key | startswith($prefix)) | .key |= sub("^" + $prefix; ""))' \
               | jq -r 'to_entries|map("\(.key)=\(.value|tostring)")|.[]' \
           );
 
@@ -68,6 +63,6 @@ jobs:
       - uses: ./.github/actions/deploy-k8s-kustomize
         with:
           runtime-env: ${{ steps.config.outputs.RUNTIME_ENV }}
-          pwd: ${{ env.DEPLOYMENT_PWD }}
-          deployment: ${{ env.DEPLOYMENT_K8S_DEPLOYMENT }}
-          namespace: ${{ env.DEPLOYMENT_K8S_NAMESPACE }}
+          pwd: ${{ env.K8S_PWD }}
+          deployment: ${{ env.K8S_DEPLOYMENT }}
+          namespace: ${{ env.K8S_NAMESPACE }}
