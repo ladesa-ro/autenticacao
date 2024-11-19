@@ -37,7 +37,7 @@ jobs:
 
     environment:
       name: ${{ github.ref_name == 'main' && 'development' || 'production' }}
-      url: ${{ env.DEPLOYMENT_URL }}
+      url: ${{ vars.DEPLOYMENT_URL }}
 
     steps:
       - uses: actions/checkout@v4
@@ -63,7 +63,7 @@ jobs:
 
       - uses: ./.github/actions/deploy-k8s
         with:
-          runtime-env: ${{ steps.config.outputs.RUNTIME_ENV }}
-          pwd: ${{ env.K8S_PWD }}
-          deployment: ${{ env.K8S_DEPLOYMENT }}
-          namespace: ${{ env.K8S_NAMESPACE }}
+          pwd: ${{ vars.K8S_PWD }}
+          runtime-env: "${{ steps.config.outputs.RUNTIME_ENV }}"
+          deployment: ${{ vars.K8S_DEPLOYMENT }}
+          namespace: ${{ vars.K8S_NAMESPACE }}
