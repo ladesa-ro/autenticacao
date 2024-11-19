@@ -2,11 +2,8 @@ name: "Continuous Deployment – K8S"
 description: "Deploy resources to kubernetes cluster"
 
 inputs:
-  runtime-env:
-    description: "string with key value envs for the service secret"
-    required: true
-  pwd:
-    description: "working directory"
+  helm-values:
+    description: "yaml helm release values"
     required: true
   deployment:
     description: "k8s deployment"
@@ -14,42 +11,36 @@ inputs:
   namespace:
     description: "k8s namespace"
     required: true
-  config-application-name:
+  helm-release-name:
     description: "helm application namespace"
-    default: "ladesa-ro-sso-config"
+    default: "ladesa-ro-sso"
 
 runs:
   using: composite
   steps:
     - name: deploy resources to kubernetes cluster
       shell: bash
-      working-directory: ${{ inputs.pwd }}
       env:
-        ENV_RUNTIME_KEY_VALUE: ${{ inputs.runtime-env }}
-        ENV_RUNTIME_SECRET_NAME: "ladesa-ro-sso-secrets"
-
-        K8S_DEPLOYMENT: ${{ inputs.deployment }}
         K8S_NAMESPACE: ${{ inputs.namespace }}
-
-        HELM_APPLICATION_NAME: ${{ inputs.config-application-name }}
+        K8S_DEPLOYMENT: ${{ inputs.deployment }}
+        HELM_RELEASE_NAME: ${{ inputs.helm-release-name }}
+        HELM_RELEASE_VALUES: ${{ inputs.helm-values }}
       run: |
-        kubectl create secret generic ${ENV_RUNTIME_SECRET_NAME} \
-          --namespace="${K8S_NAMESPACE}" \
-          --dry-run="client" \
-          -o="yaml" \
-          --from-env-file=<(echo "${ENV_RUNTIME_KEY_VALUE}") \
-        | kubectl apply -f -;
 
-        helm repo add stakater https://stakater.github.io/stakater-charts
-        helm repo update
+        GENERIC_CHART_REPO=stakater
+        GENERIC_CHART_REPO_SOURCE=https://stakater.github.io/stakater-charts
+        GENERIC_CHART_NAME=stakater/application
 
-        helm upgrade -i ladesa-ro-sso stakater/application \
+        if [[ "$(helm search repo \"${GENERIC_CHART_NAME}\" 2>/dev/null)" == 'No results found' ]] then
+          helm repo add ${GENERIC_CHART_REPO} ${GENERIC_CHART_REPO_SOURCE}
+          helm repo update
+        fi
+
+        echo "${HELM_RELEASE_VALUES}" | helm upgrade -i ${HELM_RELEASE_NAME} ${GENERIC_CHART_NAME} \
           --namespace=${K8S_NAMESPACE} \
-          --values=./values.common.yml \
-          --values=./values.dev.yml \
+          --values=./.devops/values.common.yml \
+          -f - \
         ;
-
-        # kubectl kustomize . | envsubst | kubectl apply -f -;
 
         kubectl rollout restart \
           deployment.apps/${K8S_DEPLOYMENT} \
