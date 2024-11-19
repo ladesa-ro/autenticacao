@@ -8,7 +8,7 @@ on:
 
 jobs:
   cd_build_push:
-    name: "Build and Push (Development)"
+    name: "Build and Push"
     runs-on: ubuntu-latest
 
     environment:

@@ -44,6 +44,7 @@ runs:
         helm repo update
 
         helm template ladesa-ro-sso stakater/application \
+          --dry-run \
           --namespace ${K8S_NAMESPACE} \
           -f values.common.yml \
           -f values.prod.yml \
