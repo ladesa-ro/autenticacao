@@ -8,7 +8,6 @@ on:
 
 jobs:
   cd_build_push:
-    if: false
     name: "Build and Push"
     runs-on: ubuntu-latest
 
@@ -19,6 +18,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - uses: ./.github/actions/build-and-push
+        if: false
         with:
           setup-qemu: "false"
           build-image: "true"
@@ -63,7 +63,7 @@ jobs:
 
       - uses: ./.github/actions/deploy-k8s
         with:
+          runtime-env: ${{ steps.config.outputs.RUNTIME_ENV }}
           pwd: ${{ vars.K8S_PWD }}
-          runtime-env: "${{ steps.config.outputs.RUNTIME_ENV }}"
           deployment: ${{ vars.K8S_DEPLOYMENT }}
           namespace: ${{ vars.K8S_NAMESPACE }}
