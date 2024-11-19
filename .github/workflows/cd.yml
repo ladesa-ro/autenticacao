@@ -8,11 +8,15 @@ on:
 
 jobs:
   cd_build_push:
-    name: "Build and Push (Development)"
+    strategy:
+      matrix:
+        environment: [development, production]
+
+    name: "Build and Push ${{ matrix.environment }}"
     runs-on: ubuntu-latest
 
     environment:
-      name: development
+      name: ${{ matrix.environment }}
 
     steps:
       - uses: actions/checkout@v4
@@ -29,13 +33,17 @@ jobs:
           push-image-registry-token: ${{ secrets.REGISTRY_TOKEN }}
 
   cd_deploy_development:
-    name: Deploy to Cluster (Development)
+    strategy:
+      matrix:
+        environment: [development, production]
+
+    name: Deploy to Cluster ${{ matrix.environment }}
 
     runs-on: deploy
     needs: [cd_build_push]
 
     environment:
-      name: development
+      name: ${{ matrix.environment }}
       url: ${{ env.DEPLOYMENT_URL }}
 
     steps:
