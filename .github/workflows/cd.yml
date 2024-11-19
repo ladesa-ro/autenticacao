@@ -7,20 +7,14 @@ on:
       - main
 
 jobs:
-  teste:
-    runs-on: ubuntu-latest
-    steps:
-      - shell: bash
-        run: printenv
 
-  cd_build_push_development:
-    if: github.ref_name == 'main'
+  cd_build_push:
 
     name: "Build and Push (Development)"
     runs-on: ubuntu-latest
 
     environment:
-      name: development
+      name: ${{ github.ref_name == 'main' && 'development' || 'production' }}
 
     steps:
       - uses: actions/checkout@v4
@@ -36,16 +30,15 @@ jobs:
           push-image-registry-username: ${{ secrets.REGISTRY_USERNAME }}
           push-image-registry-token: ${{ secrets.REGISTRY_TOKEN }}
 
-  cd_deploy_development:
-    if: github.ref_name == 'main'
+  cd_deploy:
 
-    name: Deploy to Cluster (Development)
+    name: Deploy to Cluster
 
     runs-on: deploy
-    needs: [cd_build_push_development]
+    needs: [cd_build_push]
 
     environment:
-      name: development
+      name: ${{ github.ref_name == 'main' && 'development' || 'production' }}
       url: ${{ env.DEPLOYMENT_URL }}
 
     steps:
