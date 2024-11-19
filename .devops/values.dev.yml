@@ -27,7 +27,7 @@ deployment:
 ingress:
   enabled: true
   hosts:
-    - host: sso.ladesa.com.br
+    - host: sso.dev.ladesa.com.br
       paths:
         - path: /
           pathType: ImplementationSpecific

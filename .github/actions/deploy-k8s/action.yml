@@ -16,7 +16,7 @@ inputs:
     required: true
   config-application-name:
     description: "helm application namespace"
-    default: "ladesa-ro-sso"
+    default: "ladesa-ro-sso-config"
 
 runs:
   using: composite
@@ -46,7 +46,7 @@ runs:
         helm install ladesa-ro-sso stakater/application \
           --namespace=${K8S_NAMESPACE} \
           --values=./values.common.yml \
-          --values=./values.prod.yml \
+          --values=./values.dev.yml \
         ;
 
         # kubectl kustomize . | envsubst | kubectl apply -f -;
