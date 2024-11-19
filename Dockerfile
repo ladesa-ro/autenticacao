@@ -1,7 +1,7 @@
 # ================================================================== #
 # Builder of theme jars                                              #
 # ================================================================== #
-FROM node:22 AS sso-theme-builder
+FROM node:23 AS sso-theme-builder
 
 RUN apt-get update && \
   apt-get install -y openjdk-17-jdk && \
