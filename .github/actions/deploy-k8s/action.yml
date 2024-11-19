@@ -43,7 +43,7 @@ runs:
         helm repo add stakater https://stakater.github.io/stakater-charts
         helm repo update
 
-        helm install ladesa-ro-sso stakater/application \
+        helm upgrade -i ladesa-ro-sso stakater/application \
           --namespace=${K8S_NAMESPACE} \
           --values=./values.common.yml \
           --values=./values.dev.yml \
