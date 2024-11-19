@@ -1,3 +1,18 @@
+FROM node:23 AS sso-development
+
+RUN apt-get update && \
+  apt-get install -y openjdk-17-jdk && \
+  apt-get install -y maven;
+
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+RUN corepack enable
+
+
+USER node
+
+WORKDIR /var/lib/ladesa-ro/ctx
+
 # ================================================================== #
 # Builder of theme jars                                              #
 # ================================================================== #

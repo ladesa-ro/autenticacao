@@ -37,7 +37,7 @@ este projeto surge para cuidar do credenciamento e checagem de identidade a essa
 
 - Login unificado (Single-Sign On);
 - Fedração de Usuários (User Federation);
-- Identity Brokering and Social Login (Identity Brokering and Social Login);
+- Integrador de Identidade e Login Social (Identity Brokering and Social Login);
 - Protocolos Padronizados (Standard Protocols).
 
 ## Desenvolvimento Local
@@ -68,12 +68,12 @@ git clone https://github.com/ladesa-ro/autenticacao.git
 cd autenticacao
 ```
 
-### Serviços do [.devops/development/docker-compose.yml](./.devops/development/docker-compose.yml)
+### Serviços do [docker-compose.yml](./docker-compose.yml)
 
-| Host                | Endereço                                                                       | Porta Alvo | Descrição               | Plataforma Base                   |
-| ------------------- | ------------------------------------------------------------------------------ | ---------- | ----------------------- | --------------------------------- |
-| `ladesa-ro-auth`    | `localhost:23032` (mapeamento direto); `sso.ladesa.localhost` (proxy reverso); | `8080`     | Aplicação KeyCloak      | `quay.io/keycloak/keycloak:25.0`  |
-| `ladesa-ro-auth-db` | `127.128.5.11:5432`                                                            | `5432`     | Banco de dados postgres | `docker.io/bitnami/postgresql:15` |
+| Host               | Endereço                                                                       | Porta Alvo | Descrição               | Plataforma Base                   |
+| ------------------ | ------------------------------------------------------------------------------ | ---------- | ----------------------- | --------------------------------- |
+| `ladesa-ro-sso`    | `localhost:23032` (mapeamento direto); `sso.ladesa.localhost` (proxy reverso); | `8080`     | Aplicação KeyCloak      | `quay.io/keycloak/keycloak:25.0`  |
+| `ladesa-ro-sso-db` | `127.128.5.11:5432`                                                            | `5432`     | Banco de dados postgres | `docker.io/bitnami/postgresql:15` |
 
 ### Scripts Make
 
