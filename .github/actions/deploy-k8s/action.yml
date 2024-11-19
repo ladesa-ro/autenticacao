@@ -43,11 +43,15 @@ runs:
         helm repo add stakater https://stakater.github.io/stakater-charts
         helm repo update
 
-        helm template ladesa-ro-sso stakater/application --dry-run --debug --namespace=${K8S_NAMESPACE} --values=./values.common.yml --values=./values.prod.yml;
+        helm install ladesa-ro-sso stakater/application \
+          --namespace=${K8S_NAMESPACE} \
+          --values=./values.common.yml \
+          --values=./values.prod.yml \
+        ;
 
         # kubectl kustomize . | envsubst | kubectl apply -f -;
 
-        # kubectl rollout restart \
-        #   deployment.apps/${K8S_DEPLOYMENT} \
-        #   --namespace ${K8S_NAMESPACE} \
-        # ;
+        kubectl rollout restart \
+          deployment.apps/${K8S_DEPLOYMENT} \
+          --namespace ${K8S_NAMESPACE} \
+        ;
