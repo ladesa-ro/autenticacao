@@ -43,7 +43,7 @@ runs:
         helm repo add stakater https://stakater.github.io/stakater-charts
         helm repo update
 
-        helm template  --dry-run --debug --namespace ${K8S_NAMESPACE} --values values.common.yml --values values.prod.yml ladesa-ro-sso stakater/application;
+        helm template ladesa-ro-sso stakater/application --dry-run --debug --namespace=${K8S_NAMESPACE} --values=values.common.yml --values=values.prod.yml;
 
         # kubectl kustomize . | envsubst | kubectl apply -f -;
 
