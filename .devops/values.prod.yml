@@ -1,0 +1,40 @@
+namespace: ladesa-ro-production
+
+deployment:
+  enabled: true
+
+  replicas: 1
+  image:
+    repository: ghcr.io/ladesa-ro/auth
+    tag: production
+    pullPolicy: Always
+
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+
+  resources:
+    limits:
+      cpu: "2"
+      memory: 2Gi
+    requests:
+      cpu: "0.5"
+      memory: 1Gi
+
+  envFrom:
+    - secretRef:
+        name: ladesa-ro-sso-config
+
+ingress:
+  enabled: true
+  hosts:
+    - host: sso.ladesa.com.br
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+          backend:
+            service:
+              name: ladesa-ro-sso
+              port:
+                name: web

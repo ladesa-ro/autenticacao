@@ -1,0 +1,43 @@
+service:
+  enabled: true
+  type: NodePort
+  ports:
+    - name: ladesa-ro-sso
+      port: 80
+      targetPort: web
+
+deployment:
+  enabled: false
+
+  name: ladesa-ro-sso
+
+  replicas: 1
+
+  ports:
+    - containerPort: 8080
+      name: web
+
+  livenessProbe:
+    path: /health/live
+    port: 9000
+    initialDelaySeconds: 30
+    periodSeconds: 10
+    timeoutSeconds: 1
+    failureThreshold: 20
+  readinessProbe:
+    path: /health/ready
+    port: 9000
+    initialDelaySeconds: 30
+    periodSeconds: 10
+    timeoutSeconds: 1
+    failureThreshold: 20
+  startupProbe:
+    path: /health/started
+    port: 9000
+    initialDelaySeconds: 30
+    periodSeconds: 10
+    timeoutSeconds: 1
+    failureThreshold: 20
+
+ingress:
+  enabled: false

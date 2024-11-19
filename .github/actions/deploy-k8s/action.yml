@@ -1,5 +1,5 @@
-name: "Continuous Deployment – K8S Kustomize"
-description: "Deploy resources to kubernetes cluster using kustomize definitions"
+name: "Continuous Deployment – K8S"
+description: "Deploy resources to kubernetes cluster"
 
 inputs:
   runtime-env:
@@ -14,6 +14,9 @@ inputs:
   namespace:
     description: "k8s namespace"
     required: true
+  config-application-name:
+    description: "helm application namespace"
+    default: "ladesa-ro-sso"
 
 runs:
   using: composite
@@ -24,9 +27,11 @@ runs:
       env:
         ENV_RUNTIME_KEY_VALUE: ${{ inputs.runtime-env }}
         ENV_RUNTIME_SECRET_NAME: "ladesa-ro-sso-secrets"
-        
+
         K8S_DEPLOYMENT: ${{ inputs.deployment }}
         K8S_NAMESPACE: ${{ inputs.namespace }}
+
+        HELM_APPLICATION_NAME: ${{ inputs.config-application-name }}
       run: |
         kubectl create secret generic ${ENV_RUNTIME_SECRET_NAME} \
           --namespace="${K8S_NAMESPACE}" \
@@ -34,6 +39,15 @@ runs:
           -o="yaml" \
           --from-env-file=<(echo "${ENV_RUNTIME_KEY_VALUE}") \
         | kubectl apply -f -;
+
+        helm repo add stakater https://stakater.github.io/stakater-charts
+        helm repo update
+
+        helm template ladesa-ro-sso stakater/application \
+          --namespace ${K8S_NAMESPACE} \
+          -f values.common.yml \
+          -f values.prod.yml \
+        ;
 
         # kubectl kustomize . | envsubst | kubectl apply -f -;
 
