@@ -1,3 +1,5 @@
+applicationName: ladesa-ro-sso
+
 service:
   enabled: true
   type: NodePort
@@ -8,8 +10,6 @@ service:
 
 deployment:
   enabled: false
-
-  name: ladesa-ro-sso
 
   replicas: 1
 
