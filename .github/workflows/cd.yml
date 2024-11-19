@@ -8,7 +8,7 @@ on:
 
 jobs:
   cd_build_push_development:
-    if: github.ref_name == 'development'
+    if: github.ref_name == 'main'
 
     name: "Build and Push (Development)"
     runs-on: ubuntu-latest
@@ -31,7 +31,7 @@ jobs:
           push-image-registry-token: ${{ secrets.REGISTRY_TOKEN }}
 
   cd_deploy_development:
-    if: github.ref_name == 'development'
+    if: github.ref_name == 'main'
 
     name: Deploy to Cluster (Development)
 
