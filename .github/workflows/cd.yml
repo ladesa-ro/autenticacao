@@ -8,6 +8,7 @@ on:
 
 jobs:
   cd_build_push:
+    if: false
     name: "Build and Push"
     runs-on: ubuntu-latest
 
