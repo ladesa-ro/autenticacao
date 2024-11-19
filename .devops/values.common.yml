@@ -13,6 +13,8 @@ deployment:
 
   replicas: 1
 
+  containerSecurityContext: false
+
   ports:
     - containerPort: 8080
       name: web
