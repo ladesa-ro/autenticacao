@@ -1,0 +1,10 @@
+node_modules
+.git
+.gitignore
+*.md
+dist
+Dockerfile
+.vitepress/cache
+.github
+.development
+.devops

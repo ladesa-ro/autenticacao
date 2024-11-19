@@ -2,44 +2,50 @@
 d_network=ladesa-net
 d_container_app=ladesa-ro-auth
 
-compose_options=--file .devops/development/docker-compose.yml -p ladesa-ro-auth
+compose_options=--file .development/docker-compose.yml -p ladesa-ro-auth
 
-dev-setup:
+setup:
+	$(shell (cd .development; find . -type f -name "*.example" -exec sh -c 'cp -n {} $$(basename {} .example)' \;))
+	$(shell (bash -c "docker network create $(d_network) &>/dev/null"))
 
-	$(shell (cd .devops/development; find . -type f -name "*.example" -exec sh -c 'cp -n {} $$(basename {} .example)' \;))
+up:
+	make setup;
+	docker-compose $(compose_options) up --force-recreate --remove-orphans -d;
 
-	$(shell (bash -c "sudo docker network create $(d_network) &>/dev/null"))
+start:
+	make setup;
 
-dev-up:
-	make dev-setup;
-	sudo docker compose $(compose_options) up -d --remove-orphans;
+	make down;
+	make up;
 
-dev-shell:
-	make dev-setup;
-	make dev-up;
-	sudo docker compose $(compose_options) exec $(d_container_app) bash;
+	docker compose $(compose_options) exec \
+		-u node \
+		--no-TTY \
+		-d $(d_container_app) \
+			bash -c "npm i && npm run migration:run && npm run start:dev" \& \
+		;
 
-dev-shell-root:
-	make dev-setup;
-	make dev-up;
-	sudo docker compose $(compose_options) exec -u root $(d_container_app) bash;
+logs:
+	make setup;
+	docker compose $(compose_options) logs -f;
 
-dev-down:
-	make dev-setup;
-	sudo docker compose $(compose_options) stop;
+shell:
+	make setup;
+	make up;
+	docker compose $(compose_options) exec $(d_container_app) bash;
 
-dev-logs:
-	make dev-setup;
-	sudo docker compose $(compose_options) logs -f
+shell-root:
+	make setup;
+	make up;
+	docker compose $(compose_options) exec -u root $(d_container_app) bash;
 
+stop:
+	make setup;
+	docker compose $(compose_options) stop;
 
-dev-start:
-	make dev-setup;
-	make dev-down;
-	make dev-up;
+down:
+	make setup;
+	docker-compose $(compose_options) down --remove-orphans;
 
-	sudo docker compose $(compose_options) exec -u node --no-TTY -d $(d_container_app) bash -c "npm i && npm run migration:run && npm run start:dev" \&;
-
-dev-cleanup:
-	make dev-down;
-	sudo docker compose $(compose_options) down -v;
+cleanup:
+	docker compose $(compose_options) down --remove-orphans -v;
