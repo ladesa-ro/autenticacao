@@ -38,7 +38,7 @@ runs:
 
         echo "${HELM_RELEASE_VALUES}" | helm upgrade -i ${HELM_RELEASE_NAME} ${GENERIC_CHART_NAME} \
           --namespace=${K8S_NAMESPACE} \
-          --values=./.devops/values.common.yml \
+          --values=./values.common.yml \
           -f - \
         ;
 
