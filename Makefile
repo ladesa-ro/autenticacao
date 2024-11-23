@@ -1,16 +1,29 @@
+MAKEFLAGS += --silent
 
 d_network=ladesa-net
-d_container_app=ladesa-ro-sso
+d_container_app=ladesa-ro-sso-development
 
 compose_options=--file docker-compose.yml -p ladesa-ro-sso
 
 setup:
 	$(shell (cd .; find . -type f -name "*.example" -exec sh -c 'cp -n {} $$(basename {} .example)' \;))
 	$(shell (bash -c "docker network create $(d_network) &>/dev/null"))
+	
+	echo "baixando imagens base dos containers, isso pode levar alguns minutos..."
+	docker compose $(compose_options) build -q
+
+prepare:
+	# docker compose $(compose_options) exec $(d_container_app) bash -c "corepack install && pnpm install";
 
 up:
 	make setup;
-	docker-compose $(compose_options) up --force-recreate --remove-orphans -d;
+	docker compose $(compose_options) up --remove-orphans -d;
+	make prepare;
+
+up-recreate:
+	make setup;
+	docker compose $(compose_options) up --remove-orphans -d --force-recreate;
+	make prepare;
 
 start:
 	make setup;
@@ -18,26 +31,22 @@ start:
 	make down;
 	make up;
 
-	docker compose $(compose_options) exec \
-		-u node \
-		--no-TTY \
-		-d $(d_container_app) \
-			bash -c "npm i && npm run migration:run && npm run start:dev" \& \
-		;
-
 logs:
 	make setup;
 	docker compose $(compose_options) logs -f;
 
+INSIDE_PATH?=./
+
 shell:
 	make setup;
 	make up;
-	docker compose $(compose_options) exec $(d_container_app) bash;
+	
+	docker compose $(compose_options) exec $(d_container_app) bash -c "cd $(INSIDE_PATH); clear; bash";
 
 shell-root:
 	make setup;
 	make up;
-	docker compose $(compose_options) exec -u root $(d_container_app) bash;
+	docker compose $(compose_options) exec -u root $(d_container_app) bash -c "cd $(INSIDE_PATH); clear; bash";
 
 stop:
 	make setup;
@@ -45,7 +54,7 @@ stop:
 
 down:
 	make setup;
-	docker-compose $(compose_options) down --remove-orphans;
+	docker compose $(compose_options) down --remove-orphans;
 
 cleanup:
 	docker compose $(compose_options) down --remove-orphans -v;
