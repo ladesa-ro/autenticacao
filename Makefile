@@ -2,10 +2,10 @@
 d_network=ladesa-net
 d_container_app=ladesa-ro-sso
 
-compose_options=--file .development/docker-compose.yml -p ladesa-ro-sso
+compose_options=--file docker-compose.yml -p ladesa-ro-sso
 
 setup:
-	$(shell (cd .development; find . -type f -name "*.example" -exec sh -c 'cp -n {} $$(basename {} .example)' \;))
+	$(shell (cd .; find . -type f -name "*.example" -exec sh -c 'cp -n {} $$(basename {} .example)' \;))
 	$(shell (bash -c "docker network create $(d_network) &>/dev/null"))
 
 up:
