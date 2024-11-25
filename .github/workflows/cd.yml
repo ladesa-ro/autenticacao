@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - main
+      # - main
       - production
 
 concurrency:
@@ -22,7 +22,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: ./.github/actions/build-and-push
+      - uses: ladesa-ro/esteira-ci-cd/actions/build-and-push@main
         with:
           setup-qemu: "false"
           build-image: "true"
@@ -46,7 +46,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: ./.github/actions/deploy-k8s
+      - uses: ladesa-ro/esteira-ci-cd/actions/deploy-k8s-stakater-application@main
         with:
           helm-values: ${{ vars.DEPLOY_HELM_VALUES }}
           deployment: ${{ vars.K8S_DEPLOYMENT }}

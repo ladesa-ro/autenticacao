@@ -3,20 +3,18 @@
 <p align="center">Fornece recursos de login, recuperação de acesso e checagem de identidade de uma forma muito doce 💝.</p>
 
 <div align="center">
-  <a href="https://github.com/ladesa-ro/autenticacao/actions/workflows/ci.yml?query=branch%3Amain">
-    <img alt="CI Development" src="https://img.shields.io/github/actions/workflow/status/ladesa-ro/autenticacao/ci.yml?style=for-the-badge&logo=githubactions&logoColor=white&label=development&branch=main&labelColor=18181B" />
+  <a href="https://github.com/ladesa-ro/autenticacao/actions/workflows/cd.yml?query=branch%3Amain">
+    <img alt="CI Development" src="https://img.shields.io/github/actions/workflow/status/ladesa-ro/autenticacao/cd.yml?style=for-the-badge&logo=githubactions&logoColor=white&label=development&branch=main&labelColor=18181B" />
   </a>
-  <a href="https://github.com/ladesa-ro/autenticacao/actions/workflows/ci.yml?query=branch%3Aproduction">
-    <img alt="CI Development" src="https://img.shields.io/github/actions/workflow/status/ladesa-ro/autenticacao/ci.yml?style=for-the-badge&logo=githubactions&logoColor=white&label=production&branch=production&labelColor=18181B" />
+  <a href="https://github.com/ladesa-ro/autenticacao/actions/workflows/cd.yml?query=branch%3Aproduction">
+    <img alt="CI Production" src="https://img.shields.io/github/actions/workflow/status/ladesa-ro/autenticacao/cd.yml?style=for-the-badge&logo=githubactions&logoColor=white&label=production&branch=production&labelColor=18181B" />
   </a>
-  <a href="https://github.com/ladesa-ro/autenticacao/actions/workflows/ci.yml?query=branch%3Aproduction">
-    <img alt="CI Development" src="https://img.shields.io/badge/DOCS.LADESA-118d3b?style=for-the-badge&logo=readme&logoColor=white&label=Documenta%C3%A7%C3%A3o&labelColor=18181b" />
-  </a>
+  
 </div>
 
 <div align="center">
-  <a href="#">
-    <img alt="Ver na Documentação do Ladesa" src="https://img.shields.io/badge/Aprender_na_Documenta%C3%A7%C3%A3o_do_Ladesa-18181b?style=for-the-badge&logo=readme&logoColor=white" />
+  <a href="https://github.com/ladesa-ro/autenticacao/actions/workflows/cd.yml?query=branch%3Aproduction">
+    <img alt="docs.ladesa" src="https://img.shields.io/badge/DOCS.LADESA-118d3b?style=for-the-badge&logo=readme&logoColor=white&label=Documenta%C3%A7%C3%A3o&labelColor=18181b" />
   </a>
 </div>
 
@@ -39,7 +37,7 @@ este projeto surge para cuidar do credenciamento e checagem de identidade a essa
 
 - Login unificado (Single-Sign On);
 - Fedração de Usuários (User Federation);
-- Identity Brokering and Social Login (Identity Brokering and Social Login);
+- Integrador de Identidade e Login Social (Identity Brokering and Social Login);
 - Protocolos Padronizados (Standard Protocols).
 
 ## Desenvolvimento Local
@@ -70,12 +68,12 @@ git clone https://github.com/ladesa-ro/autenticacao.git
 cd autenticacao
 ```
 
-### Serviços do [.devops/development/docker-compose.yml](./.devops/development/docker-compose.yml)
+### Serviços do [docker-compose.yml](./docker-compose.yml)
 
-| Host                | Endereço                                                                       | Porta Alvo | Descrição               | Plataforma Base                   |
-| ------------------- | ------------------------------------------------------------------------------ | ---------- | ----------------------- | --------------------------------- |
-| `ladesa-ro-auth`    | `localhost:23032` (mapeamento direto); `sso.ladesa.localhost` (proxy reverso); | `8080`     | Aplicação KeyCloak      | `quay.io/keycloak/keycloak:25.0`  |
-| `ladesa-ro-auth-db` | `127.128.5.11:5432`                                                            | `5432`     | Banco de dados postgres | `docker.io/bitnami/postgresql:15` |
+| Host               | Endereço                                                                       | Porta Alvo | Descrição               | Plataforma Base                   |
+| ------------------ | ------------------------------------------------------------------------------ | ---------- | ----------------------- | --------------------------------- |
+| `ladesa-ro-sso`    | `localhost:23032` (mapeamento direto); `sso.ladesa.localhost` (proxy reverso); | `8080`     | Aplicação KeyCloak      | `quay.io/keycloak/keycloak:25.0`  |
+| `ladesa-ro-sso-db` | `127.128.5.11:5432`                                                            | `5432`     | Banco de dados postgres | `docker.io/bitnami/postgresql:15` |
 
 ### Scripts Make
 
