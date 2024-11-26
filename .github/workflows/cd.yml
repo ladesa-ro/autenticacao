@@ -26,6 +26,7 @@ jobs:
         with:
           setup-qemu: "false"
           build-image: "true"
+          build-target-tag: "sso-runtime"
           push-image: "true"
           push-image-registry-url: ${{ secrets.REGISTRY_URL }}
           push-image-registry-username: ${{ secrets.REGISTRY_USERNAME }}
@@ -51,3 +52,4 @@ jobs:
           helm-values: ${{ vars.DEPLOY_HELM_VALUES }}
           deployment: ${{ vars.K8S_DEPLOYMENT }}
           namespace: ${{ vars.K8S_NAMESPACE }}
+          helm-release-name: ${{ vars.K8S_DEPLOYMENT }}
