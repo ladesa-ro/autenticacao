@@ -16,6 +16,9 @@ jobs:
     name: "Build and Push"
     runs-on: ubuntu-latest
 
+    permissions:
+      packages: write
+
     environment:
       name: production
 
