@@ -24,7 +24,7 @@ jobs:
         with:
           setup-qemu: "false"
           push-image: "true"
-          push-image-registry-url: ${{ vars.REGISTRY_GHCR == 'true' && 'ghcr.io' || secrets.REGISTRY_URL}}
+          push-image-registry-url: ${{ vars.REGISTRY_GHCR == 'true' && 'ghcr.io' || secrets.REGISTRY_URL }}
           push-image-registry-username: ${{ vars.REGISTRY_GHCR == 'true' && github.actor || secrets.REGISTRY_USERNAME }}
           push-image-registry-token: ${{ vars.REGISTRY_GHCR == 'true' && secrets.GITHUB_TOKEN || secrets.REGISTRY_TOKEN }}
 
@@ -37,7 +37,7 @@ jobs:
           build-target-tag: "sso-runtime"
 
           push-image: "true"
-          push-image-registry-url: ${{ secrets.REGISTRY_URL }}
+          push-image-registry-url: ${{ vars.REGISTRY_GHCR == 'true' && 'ghcr.io' || secrets.REGISTRY_URL }}
 
   cd_deploy:
     name: Deploy to Cluster
